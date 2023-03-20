@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App-logo {
+  cursor: pointer;
+  /* filter: drop-shadow(8px 5px 50px #fd7cff);  */
+}
+
+.App-logo:hover {
+  filter: drop-shadow(25px 25px 50px #a9ffc7) invert(7%); 
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo-spin {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background: linear-gradient(50deg, #4e86ee, #1ED760, #bc67ff);
+	background-size: 200% 200%;
+	animation: MoveGrad 5s ease infinite;
+}
+
+.play-background{
+  background: linear-gradient(140deg,  #ffe374, #ff9b4f,#ff6c8e,#fc527f );
+	background-size: 140% 140%;
+	animation: MoveGrad 5s ease infinite;
+}
+
+@keyframes MoveGrad {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
