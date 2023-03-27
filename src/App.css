@@ -35,7 +35,7 @@ code {
 
 .play-background{
   background: linear-gradient(140deg,  #ffe374, #ff9b4f,#ff6c8e,#fc527f );
-	background-size: 140% 140%;
+	background-size: 145% 145%;
 	animation: MoveGrad 5s ease infinite;
 }
 

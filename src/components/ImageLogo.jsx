@@ -1,4 +1,3 @@
-import imageLogo from './assets/image/chamelody_logo.svg'
 import { Link } from "react-router-dom";
 // import styled from "styled-components";
 
@@ -10,7 +9,7 @@ function ImageLogo({ size = "48vmin" }){
   return (
     <Link to="/home">
       <img 
-      src={imageLogo} 
+      src="img/logo/chamelody_logo.svg"
       className="App-logo logo-spin" 
       alt="logo" 
       style = {{ width: size}}

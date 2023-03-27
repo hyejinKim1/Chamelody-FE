@@ -1,0 +1,83 @@
+.logoBox {
+  height: 7vh;
+  display: inline-block;
+  margin-top: 1vh;
+}
+
+.logoBox-item{
+  margin-left: 1vh;
+}
+
+.emotion-scroll{
+  opacity: 0.9;
+  background-color: rgba(140, 229, 189, 0.2);
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  overflow: hidden;
+  height: 34vh;
+}
+
+.emotion-select{
+  opacity: 0.9;
+  background-color: rgba(70, 70, 70, 0.2);
+  width: 100vw;
+  overflow: hidden;
+  height: 34vh;
+}
+
+.cursor{
+  cursor: pointer;
+}
+
+.scroll-parent {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  padding: 2rem 0;
+  overflow-x: hidden;
+}
+
+.scroll-element {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-around;
+  overflow-x: hidden;
+}
+
+.primary {
+  animation: primary 20s linear infinite;
+}
+
+.secondary {
+  animation: secondary 20s linear infinite;
+}
+
+@keyframes primary {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes secondary {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
+/* emoji */
+.emoji:hover {
+  filter: drop-shadow(25px 25px 50px #a9ffc7) invert(7%); 
+  cursor: pointer;
+}

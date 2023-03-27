@@ -1,8 +1,6 @@
 import React from 'react';
-// import ImageLogo from './ImageLogo'
-import imageLogo from './assets/image/chamelody_logo.svg'
 import Button from './Button'
-import './style.css';
+import './css/home.css';
 
 function HomeSection(){
   return(
@@ -14,7 +12,7 @@ function HomeSection(){
           with a - 
           {/* <ImageLogo size="12vmin"/> */}
           <img 
-            src={imageLogo} 
+            src='img/logo/chamelody_logo.svg'
             className="App-logo logo-spin" 
             alt="logo" 
             style = {{ width: "12vmin" }}

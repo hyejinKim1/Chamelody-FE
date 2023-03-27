@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Button from './Button'
 import SelectEmotion from './SelectEmotion'
-import './style.css';
+import './css/select.css';
+import './css/home.css';
 import $ from 'jquery';
 
 function SelectSection() {
@@ -22,14 +23,12 @@ function SelectSection() {
       }else{
         $("#purpose-back").addClass('blinking');
       }
-      
       ChangeExplain();
 
-    }else if(current !== 'your current mood' && purpose === 'the mood you want to be'){
+    }else if(current !== 'your current mood'){
       setPurpose(e.target.id);
       $("#purpose-x").css("display","inline");
       sessionStorage.setItem('purpose',e.target.id);
-      
       
       $("#play").css("display","flex");
       $("#purpose-back").removeClass('blinking');
@@ -96,8 +95,8 @@ function SelectSection() {
         <div className="text-section">
           <h1>
             I want to <span className="padding text-border-radius text-border"> &nbsp; Chamelody &nbsp; </span> <br />
-            from <span className="blinking padding text-border-radius text-background" id="current-back"> &nbsp; # {current} &nbsp;<span className = "x-button" id="current-x" onClick={CurrentxClick}>×</span> &nbsp;</span>
-            &nbsp;to <span className="padding text-border-radius text-background" id="purpose-back">   &nbsp; # {purpose} &nbsp;<span className = "x-button" id="purpose-x" onClick={PurposexClick}>×</span> &nbsp;</span>
+            from <span className="blinking padding text-border-radius text-background black" id="current-back"> &nbsp; # {current} &nbsp;<span className = "x-button" id="current-x" onClick={CurrentxClick}>×</span> &nbsp;</span>
+            &nbsp;to <span className="padding text-border-radius text-background black" id="purpose-back">   &nbsp; # {purpose} &nbsp;<span className = "x-button" id="purpose-x" onClick={PurposexClick}>×</span> &nbsp;</span>
           </h1>
         </div>
         <div className="home-section">
@@ -105,15 +104,15 @@ function SelectSection() {
             <p>
               Chamelody guides you by drawing an emotion map.<br />
               Shall we follow the playlist created by finding a path between the two emotions of your choice? <br />
-              If you press the <img src = "img/button/PlayButton.svg" style = { { width: "7vmin" }}/>,  you can find the playlist.
+              If you press the <img src = "img/button/PlayButton.svg" alt = "play" style = { { width: "7vmin" }}/>,  you can find the playlist.
             </p>
           </span>
           <span>
             <Button link="/play" alt="play" src="img/button/PlayButton.svg" />
           </span>
         </div>
-        <div className="explain-section" >
-          <p> {explain} </p>
+        <div className="explain-section black" >
+          <p>{explain}</p>
         </div>
       </div>
 

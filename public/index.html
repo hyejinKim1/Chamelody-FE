@@ -39,5 +39,44 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!-- <script src="https://sdk.scdn.co/spotify-player.js"></script> -->
+    <!-- <script>
+      window.onSpotifyWebPlaybackSDKReady = () => {
+          const token = 'BQCmLwd1w7g4U_A0eHK1yqYf3dVkmBCdkMM0Mc7ukylQbWFTMcX025o9Ue95wF3_hIX_63zwpDKHYay4W2NS9gIv_VyIcDF8SoHN2Tq2lLorEFUUxvACvBZiIpsoipOmYJ7sX9suc9zeZPsA4NlsnB-YK0zGqW71WxRrLaJxvQd5l43QlY_22b6j0q_hh_MFBjMbdEEdKLa2YBcpbu1vWgE-';
+          const player = new Spotify.Player({
+              name: 'Web Playback SDK Quick Start Player',
+              getOAuthToken: cb => { cb(token); },
+              volume: 0.5
+          });
+
+          // Ready
+          player.addListener('ready', ({ device_id }) => {
+              console.log('Ready with Device ID', device_id);
+          });
+
+          // Not Ready
+          player.addListener('not_ready', ({ device_id }) => {
+              console.log('Device ID has gone offline', device_id);
+          });
+
+          player.addListener('initialization_error', ({ message }) => {
+              console.error(message);
+          });
+
+          player.addListener('authentication_error', ({ message }) => {
+              console.error(message);
+          });
+
+          player.addListener('account_error', ({ message }) => {
+              console.error(message);
+          });
+
+          document.getElementById('togglePlay').onclick = function() {
+            player.togglePlay();
+          };
+
+          player.connect();
+      }
+  </script> -->
   </body>
 </html>

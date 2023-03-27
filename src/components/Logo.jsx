@@ -1,6 +1,6 @@
 import ImageLogo from '../components/ImageLogo'
 import TextLogo from '../components/TextLogo'
-import './style.css';
+import './css/style.css';
 
 function Logo(){
   return(

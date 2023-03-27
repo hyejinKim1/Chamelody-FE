@@ -1,11 +1,10 @@
-import textLogo from './assets/image/chamelody_text.svg'
 import { Link } from "react-router-dom";
 
 function TextLogo({ size = "42vmin" }){
   return (
     <Link to="/home">
       <img 
-      src={textLogo} 
+      src="img/logo/chamelody_text.svg"
       className="App-logo-text" 
       alt="logo" 
       style = {{ width: size }}

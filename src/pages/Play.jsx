@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/Header'
-import PlaySection from '../components/PlaySection'
+import PlaySection from '../components/Play/PlaySection'
 
 function Play(){
   return(

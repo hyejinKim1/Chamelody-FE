@@ -1,0 +1,52 @@
+.Home-header {
+  height: 8vh;
+  display: inline-block;
+}
+
+.Home-main {
+  min-height: 58vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding-left:7vw;
+  padding-right: 5%;
+  position: relative;
+}
+
+.text-section h1{
+  font-size: 5.5vmin;
+}
+
+.home-section p{
+  font-size: 2vmin;
+}
+
+.text-border{
+  border: 0.4vmin solid white;
+}
+
+.text-border-radius{
+  border-radius: 5vmin;
+}
+
+.text-background{
+  background-color: white;
+  color:#1ED760;
+}
+
+.padding{
+  padding-bottom: 1vmin;
+}
+
+.text-section{
+  display: inline-block;
+  /* margin-top: 3vmin; */
+  line-height: 1.7;
+}
+
+.home-section{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 1.8;
+}

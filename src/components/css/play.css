@@ -1,0 +1,105 @@
+/* play 페이지 */
+.play-wrapper{
+  display:flex;
+  width:100vw;
+  height: 80vh;
+  color: white;
+}
+
+.player-div{
+  height: 12vh;
+}
+
+.player-div a{
+  font-size: 2vmin;
+  text-decoration: none;
+  color: black;
+}
+
+.play-section {
+  font-size: 1.9vw;
+  line-height: 2.2;
+  width: 36%;
+  margin-left: 10vmin;
+  margin-top: 10vh;
+}
+
+.play-section span{
+  color: black;
+  border-radius: 10vmin;
+  background-color: white;
+  padding-bottom:1vw;
+}
+
+.playlist-div{
+  background-color:rgba(255, 255, 255, 0.4);
+  width:50%;
+  height: 85%;
+  border-radius: 5vmin;
+  margin: 5vmin;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
+}
+
+.playlist-div::-webkit-scrollbar {
+  display: none;
+}
+
+.playlist-div ul{
+  margin-left:5vmin;
+  margin-right: 5vmin;
+  padding: 0;
+}
+
+.playlist-div li{
+  background-color:rgba(255, 255, 255, 0.9);
+  border-radius: 5vmin;
+  color:black;
+  padding: 0.8vmin;
+  padding-left:4vmin;
+  padding-right: 5vmin;
+  list-style: none;
+  margin: 1vmin;
+  display: flex;
+  align-items: center;
+}
+
+.playlist-div button{
+  border: none;
+  background-color: white;
+}
+
+.spotify-login{
+  margin-left: 7vmin;
+}
+
+.login-btn{
+  border: none;
+  border-radius: 10vmin;
+  background-color:rgba(255, 255, 255, 0.7);
+  padding: 1vmin;
+  font-size: 1.3vw;
+  font-weight:700;
+}
+
+.player{
+  background-color:rgba(255, 255, 255, 0.7);
+  border-radius: 2vmin;
+  display: flex;
+  color: black;
+}
+
+.player div{
+  margin: 3vmin;
+}
+
+.music-info-div{
+  margin-left: 2vmin;
+}
+
+.music-name{
+  font-size:2vmin;
+  font-weight:700;
+  padding-bottom:0.8vmin;
+}
