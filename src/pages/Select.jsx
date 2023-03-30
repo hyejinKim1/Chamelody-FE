@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/utils/Header";
-import SelectSection from "../components/SelectSection";
+import SelectSection from "../components/Select/SelectSection";
 
 function Select() {
   return (

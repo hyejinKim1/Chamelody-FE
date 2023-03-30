@@ -1,6 +1,6 @@
 import React from 'react';
-import Emoji from './utils/Emoji'
-import '../css/style.css';
+import Emoji from '../utils/Emoji'
+import '../../css/style.css';
 
 function ScrollEmotion(){
   return(

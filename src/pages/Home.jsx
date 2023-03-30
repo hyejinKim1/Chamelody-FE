@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/utils/Header";
-import HomeSection from "../components/HomeSection";
-import ScrollEmotion from "../components/ScrollEmotion";
+import HomeSection from "../components/Home/HomeSection";
+import ScrollEmotion from "../components/Home/ScrollEmotion";
 
 function Home() {
   return (

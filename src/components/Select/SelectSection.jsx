@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Button from './utils/Button'
+import Button from '../utils/Button'
 import SelectEmotion from './SelectEmotion'
-import '../css/select.css';
-import '../css/home.css';
+import '../../css/select.css';
+import '../../css/home.css';
 import $ from 'jquery';
 
 function SelectSection() {
