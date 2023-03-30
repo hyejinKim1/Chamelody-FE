@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function ImageLogo({ size = "48vmin" }){
   return (
-    <Link to="/home">
+    <Link to="/">
       <img 
       src="img/logo/chamelody_logo.svg"
       className="App-logo logo-spin" 

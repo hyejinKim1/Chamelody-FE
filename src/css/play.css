@@ -2,24 +2,18 @@
 .play-wrapper{
   display:flex;
   width:100vw;
-  height: 80vh;
+  height: 78vh;
   color: white;
 }
 
 .player-div{
-  height: 12vh;
-}
-
-.player-div a{
-  font-size: 2vmin;
-  text-decoration: none;
-  color: black;
+  height: 14vh;
 }
 
 .play-section {
-  font-size: 1.9vw;
+  font-size: 2vw;
   line-height: 2.2;
-  width: 36%;
+  width: 38%;
   margin-left: 10vmin;
   margin-top: 10vh;
 }
@@ -33,7 +27,7 @@
 
 .playlist-div{
   background-color:rgba(255, 255, 255, 0.4);
-  width:50%;
+  width:47%;
   height: 85%;
   border-radius: 5vmin;
   margin: 5vmin;
@@ -53,7 +47,7 @@
 }
 
 .playlist-div li{
-  background-color:rgba(255, 255, 255, 0.9);
+  background-color:rgba(255, 255, 255, 0.8);
   border-radius: 5vmin;
   color:black;
   padding: 0.8vmin;
@@ -81,6 +75,7 @@
   padding: 1vmin;
   font-size: 1.3vw;
   font-weight:700;
+  cursor:pointer;
 }
 
 .player{
@@ -102,4 +97,21 @@
   font-size:2vmin;
   font-weight:700;
   padding-bottom:0.8vmin;
+}
+
+/* player 변경 */
+
+.PlayerRSWP a{
+  font-size: 1.5vmin;
+  text-decoration: none;
+  margin:1vmin;
+}
+
+.PlayerRSWP img{
+  border-radius: 0.8vmin;
+}
+
+._ContentRSWP p:nth-of-type(1) a{
+  font-size: 2.3vmin;
+  font-weight:700;
 }

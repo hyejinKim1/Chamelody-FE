@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from './Button'
-import './css/home.css';
+import Button from './utils/Button'
+import '../css/home.css';
 
 function HomeSection(){
   return(
@@ -13,9 +13,9 @@ function HomeSection(){
           {/* <ImageLogo size="12vmin"/> */}
           <img 
             src='img/logo/chamelody_logo.svg'
-            className="App-logo logo-spin" 
+            className="logo-spin margin-bottom" 
             alt="logo" 
-            style = {{ width: "12vmin" }}
+            style = {{ width: "6.5vw" }}
           />
           &nbsp;<br />
           <span className = "padding text-border-radius text-background">  &nbsp;#Chamelody &nbsp;</span> playlist

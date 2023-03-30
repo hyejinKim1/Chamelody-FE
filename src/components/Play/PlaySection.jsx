@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../css/play.css';
+import '../../css/play.css';
 import Player from "./Player";
 import Playlist from "./Playlist";
 import SpotifyWebApi from 'spotify-web-api-js';
@@ -10,10 +10,10 @@ const spotifyApi = new SpotifyWebApi();
 
 const MusicData = [
   {
-    "id": "0pYacDCZuRhcrwGUA5nTBe",
-    "name": "에잇(Prod.&Feat. SUGA of BTS)",
-    "artists": ["아이유", "슈가"],
-    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c63be04ae902b1da7a54d247"
+    "id": "4Dr2hJ3EnVh2Aaot6fRwDO",
+    "name": "Blueming",
+    "artists": ["아이유"],
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273b658276cd9884ef6fae69033"
   },
   {
     "id": "1IdM9JrXYuMYiTdM983oH4",
@@ -22,16 +22,40 @@ const MusicData = [
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b273762badbc5b89a2fa65d13f67"
   },
   {
+    "id": "3r8RuvgbX9s7ammBn07D3W",
+    "name": "Ditto",
+    "artists": ["NewJeans"],
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273edf5b257be1d6593e81bb45f"
+  },
+  {
+    "id": "4fsQ0K37TOXa3hEQfjEic1",
+    "name": "ANTIFRAGILE",
+    "artists": ["LE SSERAFIM"],
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a991995542d50a691b9ae5be"
+  },
+  {
+    "id": "0Ts1lnK3lYa2dwE2orDJc5",
+    "name": "I Don’t Think That I Like Her",
+    "artists": ["Charlie Puth"],
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a3b39c1651a617bb09800fd8"
+  },
+  {
+    "id": "6YOXdy9jShw66iOnBzQMKv",
+    "name": "봄 인가 봐",
+    "artists": ["웬디", "에릭남"],
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c2220e622cd370a4237727f8"
+  },
+  {
+    "id": "0pYacDCZuRhcrwGUA5nTBe",
+    "name": "에잇(Prod.&Feat. SUGA of BTS)",
+    "artists": ["아이유", "슈가"],
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c63be04ae902b1da7a54d247"
+  },
+  {
     "id": "0KVClXxsZEKkyWRNXeRFrE",
     "name": "내 손을 잡아",
     "artists": ["아이유"],
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b273f1efb467ac4c748630ffd22f"
-  },
-  {
-    "id": "4Dr2hJ3EnVh2Aaot6fRwDO",
-    "name": "Blueming",
-    "artists": ["아이유"],
-    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273b658276cd9884ef6fae69033"
   },
   {
     "id": "7HrE6HtYNBbGqp5GmHbFV0",
@@ -52,34 +76,10 @@ const MusicData = [
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734ed058b71650a6ca2c04adff"
   },
   {
-    "id": "0Ts1lnK3lYa2dwE2orDJc5",
-    "name": "I Don’t Think That I Like Her",
-    "artists": ["Charlie Puth"],
-    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a3b39c1651a617bb09800fd8"
-  },
-  {
-    "id": "4fsQ0K37TOXa3hEQfjEic1",
-    "name": "ANTIFRAGILE",
-    "artists": ["LE SSERAFIM"],
-    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a991995542d50a691b9ae5be"
-  },
-  {
     "id": "21ApmVGIzIAIDSBdHu6SVt",
     "name": "No Celestial",
     "artists": ["LE SSERAFIM"],
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a991995542d50a691b9ae5be"
-  },
-  {
-    "id": "3r8RuvgbX9s7ammBn07D3W",
-    "name": "Ditto",
-    "artists": ["NewJeans"],
-    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273edf5b257be1d6593e81bb45f"
-  },
-  {
-    "id": "6YOXdy9jShw66iOnBzQMKv",
-    "name": "봄 인가 봐",
-    "artists": ["웬디", "에릭남"],
-    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c2220e622cd370a4237727f8"
   }
 ]
 

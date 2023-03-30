@@ -1,11 +1,11 @@
 import Logo from './Logo'
-import './css/style.css';
+import '../../css/style.css';
 
 function Header(){
   return(
-    <div className="Home-header" >
+    <header className="chamelody-header" >
             <Logo />
-    </div>
+    </header>
   )
 }
 

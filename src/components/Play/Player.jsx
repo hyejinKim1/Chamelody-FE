@@ -1,4 +1,4 @@
-import '../css/play.css';
+import '../../css/play.css';
 import React from 'react';
 import SpotifyPlayer from 'react-spotify-web-playback';
 
@@ -17,12 +17,14 @@ function Player({ token, data}) {
         play={play}
         uris={data.map(track => "spotify:track:" + track.id)}
         styles={{
-          height:"12vmin",
-          // activeColor: '#fff',
-          bgColor: 'rgba(255, 255, 255, 0.9)',
+          height:"14vmin",
+          activeColor: '#ff6c8e',
+          bgColor: 'rgba(255, 255, 255, 0.6)',
           color: 'black',
-          loaderColor: '#fff',
-          sliderColor: '#1cb954',
+          trackArtistColor: "black",
+          trackNameColor: "black",
+          loaderColor: '#ff6c8e',
+          sliderColor: '#ff6c8e'
         }}
       />
   );

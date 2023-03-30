@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Button from './Button'
+import Button from './utils/Button'
 import SelectEmotion from './SelectEmotion'
-import './css/select.css';
-import './css/home.css';
+import '../css/select.css';
+import '../css/home.css';
 import $ from 'jquery';
 
 function SelectSection() {
@@ -55,7 +55,6 @@ function SelectSection() {
     setPurpose('the mood you want to be');
     $("#purpose-x").css("display","none");
     sessionStorage.removeItem('purpose');
-
     
     $("#play").css("display","none");
     if($("#current-back").hasClass("blinking") === false){
@@ -104,14 +103,14 @@ function SelectSection() {
             <p>
               Chamelody guides you by drawing an emotion map.<br />
               Shall we follow the playlist created by finding a path between the two emotions of your choice? <br />
-              If you press the <img src = "img/button/PlayButton.svg" alt = "play" style = { { width: "7vmin" }}/>,  you can find the playlist.
+              If you press the <img src = "img/button/PlayButton.svg" alt = "play" style = { { width: "7vmin" }} className="play-margin-bottom"/> ,  you can find the playlist.
             </p>
           </span>
           <span>
             <Button link="/play" alt="play" src="img/button/PlayButton.svg" />
           </span>
         </div>
-        <div className="explain-section black" >
+        <div className="explain-section" >
           <p>{explain}</p>
         </div>
       </div>

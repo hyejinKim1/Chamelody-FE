@@ -14,7 +14,6 @@ code {
 
 .App-logo {
   cursor: pointer;
-  /* filter: drop-shadow(8px 5px 50px #fd7cff);  */
 }
 
 .App-logo:hover {
@@ -27,15 +26,9 @@ code {
   }
 }
 
-.App-header {
+.App-wrapper {
   background: linear-gradient(50deg, #4e86ee, #1ED760, #bc67ff);
 	background-size: 200% 200%;
-	animation: MoveGrad 5s ease infinite;
-}
-
-.play-background{
-  background: linear-gradient(140deg,  #ffe374, #ff9b4f,#ff6c8e,#fc527f );
-	background-size: 145% 145%;
 	animation: MoveGrad 5s ease infinite;
 }
 
@@ -54,10 +47,10 @@ code {
   }
 }
 
-.center{
+/* .center{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-}
+} */

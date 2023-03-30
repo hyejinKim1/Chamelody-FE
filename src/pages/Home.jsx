@@ -1,16 +1,14 @@
 import React from 'react';
-import Header from '../components/Header'
+import Header from '../components/utils/Header'
 import HomeSection from '../components/HomeSection'
 import ScrollEmotion from '../components/ScrollEmotion'
-// import '../App.css';
 
 function Home(){
   return(
-    <React.Fragment>
-      <Header />
+    <div className="Home-wrapper">
       <HomeSection />
       <ScrollEmotion />
-    </React.Fragment>
+    </div>
   )
 }
 

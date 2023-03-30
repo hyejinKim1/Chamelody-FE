@@ -1,13 +1,13 @@
 import React from 'react';
-import Header from '../components/Header'
+import Header from '../components/utils/Header'
 import SelectSection from '../components/SelectSection'
 
 function Select(){
   return(
-    <React.Fragment>
-      <Header />
+    
+    <div className="Select-wrapper">
       <SelectSection />
-    </React.Fragment>
+    </div>
   )
 }
 
