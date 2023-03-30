@@ -1,5 +1,5 @@
-import ImageLogo from '../components/ImageLogo'
-import TextLogo from '../components/TextLogo'
+import ImageLogo from '../components/utils/ImageLogo'
+import TextLogo from '../components/utils/TextLogo'
 import '../App.css';
 
 function Start(){
