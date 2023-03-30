@@ -1,17 +1,7 @@
-import React, { UseEffect } from "react";
-import Header from "../components/utils/Header";
+import React from "react";
 import PlaySection from "../components/Play/PlaySection";
-import $ from "jquery";
-import "../App.css";
 
 function Play() {
-  // $(".App-wrapper").css(
-  //   "background",
-  //   "linear-gradient(140deg,  #ffe374, #ff9b4f,#ff6c8e,#fc527f )"
-  // );
-  // $(".App-wrapper").css("background-size", "145% 145%");
-  // $(".App-wrapper").css("animation", "MoveGrad 5s ease infinite");
-
   return (
     <div className="Play-wrapper">
       <div style={{ height: "8vh" }}></div>
@@ -21,7 +11,3 @@ function Play() {
 }
 
 export default Play;
-
-// <div className="playBackground">
-//   <Header />
-// </div>
