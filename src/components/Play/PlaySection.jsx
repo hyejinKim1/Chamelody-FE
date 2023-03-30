@@ -129,7 +129,7 @@ function PlaySection() {
 
   return (
     <React.Fragment>
-      <div className="play-wrapper">
+      <div className="play-section-wrapper">
         <div className="play-section">
           <h1>
             from <span>  &nbsp; # {current} &nbsp;</span>

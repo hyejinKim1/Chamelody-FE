@@ -1,5 +1,5 @@
 /* play 페이지 */
-.play-wrapper{
+.play-section-wrapper{
   display:flex;
   width:100vw;
   height: 78vh;
@@ -114,4 +114,10 @@
 ._ContentRSWP p:nth-of-type(1) a{
   font-size: 2.3vmin;
   font-weight:700;
+}
+
+.Play-wrapper{
+    background: linear-gradient(140deg,  #ffe374, #ff9b4f,#ff6c8e,#fc527f );
+    background-size: 145% 145%;
+    animation: MoveGrad 5s ease infinite;
 }

@@ -62,3 +62,9 @@
 .play-margin-bottom{
   margin-bottom:-0.9vmin;
 }
+
+.Select-wrapper{
+  background: linear-gradient(50deg, #4e86ee, #1ED760, #bc67ff);
+	background-size: 200% 200%;
+	animation: MoveGrad 5s ease infinite;
+}
