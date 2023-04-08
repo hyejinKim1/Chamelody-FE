@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
+
+
 // import styled from "styled-components";
 
 // const StyledLink = styled(Link)`
 
 // `
 
-function ImageLogo({ size = "48vmin" }){
+export default function ImageLogo({ size = "48vmin" }){
   return (
     <Link to="/">
       <img 
@@ -18,4 +20,3 @@ function ImageLogo({ size = "48vmin" }){
   )
 }
 
-export default ImageLogo;

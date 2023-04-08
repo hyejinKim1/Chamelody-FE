@@ -2,7 +2,7 @@ import '../../css/play.css';
 import React from 'react';
 import SpotifyPlayer from 'react-spotify-web-playback';
 
-function Player({ token, data}) {
+export default function Player({ token, data}) {
   const [play, setPlay] = React.useState(false);
 
   React.useEffect(() => setPlay(true), []);
@@ -29,9 +29,6 @@ function Player({ token, data}) {
       />
   );
 };
-
-export default Player;
-
 
 /* <ul>
 {playlist.map((music) => (

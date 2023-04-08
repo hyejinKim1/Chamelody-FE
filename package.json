@@ -24,7 +24,7 @@
     "react-spotify-web-playback-sdk": "^3.0.1",
     "slick-carousel": "^1.8.1",
     "spotify-web-api-js": "^1.5.2",
-    "styled-components": "^5.3.6",
+    "styled-components": "^5.3.9",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

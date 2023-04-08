@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function TextLogo({ size = "42vmin" }){
+export default function TextLogo({ size = "42vmin" }){
   return (
     <Link to="/">
       <img 
@@ -12,5 +12,3 @@ function TextLogo({ size = "42vmin" }){
     </Link>
   )
 }
-
-export default TextLogo;

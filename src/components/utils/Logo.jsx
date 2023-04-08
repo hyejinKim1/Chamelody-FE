@@ -2,7 +2,7 @@ import ImageLogo from './ImageLogo'
 import TextLogo from './TextLogo'
 import '../../css/style.css';
 
-function Logo(){
+export default function Logo(){
   return(
     <div 
     className="logoBox">
@@ -15,5 +15,3 @@ function Logo(){
     </div>
   )
 }
-
-export default Logo;

@@ -1,24 +1,86 @@
 import React from 'react';
 import Emoji from '../utils/Emoji'
-import '../../css/style.css';
-import $ from 'jquery';
+import styled from "styled-components";
 
-function SelectEmotion({onClick}){
+const SelectWrapper = styled.div`
+  opacity: 0.9;
+  background-color: rgba(70, 70, 70, 0.2);
+  width: 100vw;
+  overflow: hidden;
+  height: 34vh;
+  `
+
+  const SlideWrapper = styled.div`
+  width:200vw;
+  height:100%;
+  transition: transform 0.9s;
+  transform: ${({slide}) => {
+    if (slide === '2') {
+      return "translate(-100vw)";
+    }
+    return "translate(0)";
+  }};
+  `
+
+  const Slide = styled.div`
+  width:100vw;
+  height:100%;
+  float:left;
+  text-align: center;
+  display:flex;
+  align-items: center;
+  `
+
+  const LeftDisableBtn = styled.img.attrs({
+    src: `img/button/disable_left_button.svg`,
+    alt: "left",
+  })`
+  width: 6vmin;
+  opacity: 0.4;
+  `
+
+  const LeftBtn = styled.img.attrs({
+    src: `img/button/left_button.svg`,
+    alt: "left",
+  })`
+  width: 6vmin;
+  cursor: pointer;
+  `
+
+  const RightDisableBtn = styled.img.attrs({
+    src: `img/button/disable_right_button.svg`,
+    alt: "right",
+  })`
+  width: 6vmin;
+  opacity: 0.4;
+  `
+
+  const RightBtn = styled.img.attrs({
+    src: `img/button/right_button.svg`,
+    alt: "right",
+  })`
+  width: 6vmin;
+  cursor: pointer;
+  `
+
+export default function SelectEmotion({onClick}){
+
+  const [slide, setSlide] = React.useState('1');
+
   const rightBtnClicked = () => {
-    $(".select-parent").css("transform","translate(-100vw)");
+    setSlide('2');
   };
 
   const leftBtnClicked = () => {
-    $(".select-parent").css("transform","translate(0)");
+    setSlide('1');
   };
+
   return(
-    <div className="emotion-select">
-      <div className="select-parent">
-        <div className="row slide emotion-slide1">
-          <div className="left-button-div">
-            <img src = "img/button/disable_left_button.svg" className="slide-button" alt= "left" style = {{width: "6vmin", opacity: "0.4"}} />
-          </div>
-          <div className="select-element">
+    <SelectWrapper>
+      <SlideWrapper slide={slide}>
+        <Slide>
+          <LeftDisableBtn/>
+          <div>
             <Emoji onClick = {onClick} emotion = "Anger" src = "img/emoji/Anger.svg" size = "10%"/>
             <Emoji onClick = {onClick} emotion = "Fear" src = "img/emoji/Fear.svg" size = "7%"/>
             <Emoji onClick = {onClick} emotion = "Lonely" src = "img/emoji/LonelyText.svg" size = "10%" />
@@ -31,26 +93,11 @@ function SelectEmotion({onClick}){
             <Emoji onClick = {onClick} emotion = "Shame" src = "img/emoji/Shame.svg" size = "9%"/>
             <Emoji onClick = {onClick} emotion = "Nervous" src = "img/emoji/NervousText.svg" size = "10%" />
           </div>
-          <div className='right-button-div'>
-            <img 
-            src = "img/button/right_button.svg" 
-            className="slide-button cursor" 
-            alt= "right" 
-            style = {{width: "6vmin"}}
-            onClick = {rightBtnClicked}/>
-          </div>
-        </div>
-
-        <div className="slide emotion-slide2">
-          <div className="left-button-div">
-            <img 
-            src = "img/button/left_button.svg" 
-            className="slide-button cursor" 
-            alt= "left" 
-            style = {{width: "6vmin"}}
-            onClick = {leftBtnClicked}/>
-          </div>
-          <div className="select-element">
+          <RightBtn onClick = {rightBtnClicked}/>
+        </Slide>
+        <Slide>
+          <LeftBtn onClick = {leftBtnClicked}/>
+          <div>
             <Emoji onClick = {onClick} emotion = "Lonely" src = "img/emoji/Lonely.svg" size = "10%" />
             <Emoji onClick = {onClick} emotion = "Relaxation" src = "img/emoji/Relaxation.svg" size = "7%"/>
             <Emoji onClick = {onClick} emotion = "Pride" src = "img/emoji/PrideText.svg" size = "10%"/>
@@ -62,15 +109,10 @@ function SelectEmotion({onClick}){
             <Emoji onClick = {onClick} emotion = "LongFor" src = "img/emoji/LongForText.svg" size = "10%"/>
             <Emoji onClick = {onClick} emotion = "Nervous" src = "img/emoji/Nervous.svg" size = "10%" />
             <Emoji onClick = {onClick} emotion = "Shame" src = "img/emoji/ShameText.svg" size = "10%" />
-            
           </div>
-          <div className='right-button-div'>
-            <img src = "img/button/disable_right_button.svg" className="slide-button" alt= "right" style = {{width: "6vmin", opacity: "0.4"}}/>
-          </div>
-        </div>        
-      </div>
-    </div>
+          <RightDisableBtn/>
+        </Slide>        
+      </SlideWrapper>
+    </SelectWrapper>
   )
 }
-
-export default SelectEmotion;

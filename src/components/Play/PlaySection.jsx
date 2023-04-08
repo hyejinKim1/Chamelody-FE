@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import '../../css/play.css';
 import Player from "./Player";
 import Playlist from "./Playlist";
 import SpotifyWebApi from 'spotify-web-api-js';
-// import MusicData from "./Playlist.json"
+import '../../css/play.css';
+import styled from 'styled-components';
 
 const spotifyApi = new SpotifyWebApi();
 // const Spotify = require('spotify-web-api-js');
@@ -83,8 +83,56 @@ const MusicData = [
   }
 ]
 
+const PlaySectionWrapper = styled.div`
+display:flex;
+width:100vw;
+height: 78vh;
+color: white;
+`
 
-function PlaySection() {
+const PlaySide = styled.div`
+  font-size: 2vw;
+  line-height: 2.2;
+  width: 38%;
+  margin-left: 10vmin;
+  margin-top: 10vh;
+`
+
+const RoundText = styled.span`
+color: black;
+border-radius: 10vmin;
+background-color: white;
+padding-bottom:1vw;
+`
+
+const PlaylistDiv = styled.div`
+background-color:rgba(255, 255, 255, 0.4);
+width:47%;
+height: 85%;
+border-radius: 5vmin;
+margin: 5vmin;
+overflow-y: scroll;
+-ms-overflow-style: none;
+scrollbar-width: none;
+&::-webkit-scrollbar {
+  display: none;
+}
+`
+const LoginBtn = styled.button`
+border: none;
+border-radius: 10vmin;
+background-color:rgba(255, 255, 255, 0.7);
+padding: 1vmin;
+font-size: 1.3vw;
+font-weight:700;
+cursor:pointer;
+`
+
+const PlayerDiv = styled.div`
+height: 14vh;
+`
+
+export default function PlaySection() {
   const current = sessionStorage.getItem('current');
   const purpose = sessionStorage.getItem('purpose');
 
@@ -129,28 +177,26 @@ function PlaySection() {
 
   return (
     <React.Fragment>
-      <div className="play-section-wrapper">
-        <div className="play-section">
+      <PlaySectionWrapper>
+        <PlaySide>
           <h1>
-            from <span>  &nbsp; # {current} &nbsp;</span>
+            from <RoundText>  &nbsp; # {current} &nbsp;</RoundText>
             <br />
-            to <span>   &nbsp; # {purpose} &nbsp;</span>
+            to <RoundText>   &nbsp; # {purpose} &nbsp;</RoundText>
           </h1>
           {!accessToken && (
-            <button onClick={handleLogin} className="login-btn"> &nbsp; Log in with Spotify &nbsp; </button>
+            <LoginBtn onClick={handleLogin}> &nbsp; Log in with Spotify &nbsp; </LoginBtn>
           )}
-        </div>
-        <div className="playlist-div">
+        </PlaySide>
+        <PlaylistDiv>
           <Playlist data={MusicData}/>
-        </div>
-      </div>
-      <div className="player-div">
+        </PlaylistDiv>
+      </PlaySectionWrapper>
+      <PlayerDiv>
         {accessToken && (
           <Player token={accessToken} data={MusicData}/>
         )}
-      </div>
+      </PlayerDiv>
     </React.Fragment>
   )
 }
-
-export default PlaySection;

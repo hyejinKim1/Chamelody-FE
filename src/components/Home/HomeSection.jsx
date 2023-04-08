@@ -1,40 +1,74 @@
 import React from 'react';
+import styled from "styled-components";
 import Button from '../utils/Button'
-import '../../css/home.css';
 
-function HomeSection(){
-  return(
-    <div className="Home-main">
-      <div className="text-section">
-        <h1>
-          Change your <span className = "padding text-border-radius text-border"> &nbsp; mood &nbsp; </span> <br />
+export const HomeMain = styled.div`
+  min-height: 58vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding-left:7vw;
+  padding-right: 5%;
+  position: relative;
+`;
 
-          with a - 
-          {/* <ImageLogo size="12vmin"/> */}
-          <img 
-            src='img/logo/chamelody_logo.svg'
-            className="logo-spin margin-bottom" 
-            alt="logo" 
-            style = {{ width: "6.5vw" }}
-          />
-          &nbsp;<br />
-          <span className = "padding text-border-radius text-background">  &nbsp;#Chamelody &nbsp;</span> playlist
-        </h1>
-      </div>
-      <div className = "home-section">
-        <span>
-          <p>
+export const HomeTitle = styled.h1`
+  font-size: 2.9vw;
+  line-height: 2;
+`
+
+export const HomeExplain = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 1.6;
+`
+
+export const HomeSubTitle = styled.p`
+  font-size: 2vmin;
+`
+
+export const BorderHighLight = styled.span`
+  border-radius: 5vmin;
+  border: 0.4vmin solid white;
+  padding-bottom: 1vmin;
+`
+
+export const BackHighLight = styled.span`
+  border-radius: 5vmin;
+  background-color: white;
+  padding-bottom: 1vmin;
+  color: ${props => props.color || "#1ED760"};
+`
+
+const LogoImage = styled.img.attrs({
+  src: `img/logo/chamelody_logo.svg`,
+  className: "logo-spin",
+  alt: "logo",
+})`
+width: 6.5vw;
+height: 6.5vw;
+margin-bottom: -2vw;
+`
+
+export default function HomeSection() {
+  return (
+    <HomeMain>
+      <HomeTitle>
+        Change your <BorderHighLight>&nbsp;&nbsp;mood&nbsp;&nbsp;</BorderHighLight> <br />
+        with a -
+        <LogoImage/>
+        &nbsp;<br />
+        <BackHighLight>&nbsp;&nbsp;#Chamelody&nbsp;&nbsp;</BackHighLight> playlist
+      </HomeTitle>
+      <HomeExplain>
+        <HomeSubTitle>
           Chamelody brings you a new experience.<br />
           Click the emoji that matches your current mood and the mood you want to be. <br />
           If you listen to the playlist created by Chamelody, you can feel the mood you want
-          </p>
-        </span>
-        <span>
-          <Button link = "/select" alt = "start" src="img/button/start_button.svg"/>
-        </span>
-      </div>
-    </div>
+        </HomeSubTitle>
+        <Button link="/select" alt="start" src="img/button/start_button.svg"/>
+      </HomeExplain>
+    </HomeMain>
   )
 }
-
-export default HomeSection;
