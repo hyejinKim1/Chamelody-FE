@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Player from "./Player";
 import Playlist from "./Playlist";
 import SpotifyWebApi from 'spotify-web-api-js';
-import '../../css/play.css';
 import styled from 'styled-components';
 
 const spotifyApi = new SpotifyWebApi();
-// const Spotify = require('spotify-web-api-js');
 
 const MusicData = [
   {

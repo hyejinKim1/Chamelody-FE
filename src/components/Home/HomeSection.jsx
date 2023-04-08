@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
-import Button from '../utils/Button'
+import Button from '../utils/Button';
+import { ChamelodyImage } from '../utils/ImageLogo';
 
 export const HomeMain = styled.div`
   min-height: 58vh;
@@ -41,14 +42,8 @@ export const BackHighLight = styled.span`
   color: ${props => props.color || "#1ED760"};
 `
 
-const LogoImage = styled.img.attrs({
-  src: `img/logo/chamelody_logo.svg`,
-  className: "logo-spin",
-  alt: "logo",
-})`
-width: 6.5vw;
-height: 6.5vw;
-margin-bottom: -2vw;
+const LogoImage = styled(ChamelodyImage)`
+  margin-bottom: -2vw;
 `
 
 export default function HomeSection() {
@@ -57,7 +52,7 @@ export default function HomeSection() {
       <HomeTitle>
         Change your <BorderHighLight>&nbsp;&nbsp;mood&nbsp;&nbsp;</BorderHighLight> <br />
         with a -
-        <LogoImage/>
+        <LogoImage />
         &nbsp;<br />
         <BackHighLight>&nbsp;&nbsp;#Chamelody&nbsp;&nbsp;</BackHighLight> playlist
       </HomeTitle>

@@ -1,12 +1,12 @@
-export default function Emoji({onClick, emotion, src, size = "10vmin"} ){
+export default function Emoji({onClick, emotion, src, size = "10vmin", emojiClass="emoji"} ){
   return (
     <img 
       onClick = {onClick}
       src = {src} 
-      className="emoji" 
+      className={emojiClass} 
       id = {emotion}
       alt={emotion} 
-      style = {{ width: size }}
+      style = {{ width: size}}
     />
   )
 }

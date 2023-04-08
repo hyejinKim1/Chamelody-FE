@@ -5,8 +5,7 @@ export default function TextLogo({ size = "42vmin" }){
     <Link to="/">
       <img 
       src="img/logo/chamelody_text.svg"
-      className="App-logo-text" 
-      alt="logo" 
+      alt="Chamelody" 
       style = {{ width: size }}
       />
     </Link>

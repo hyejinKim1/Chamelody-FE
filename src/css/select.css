@@ -1,5 +1,0 @@
-/* emoji */
-.emoji:hover {
-  filter: drop-shadow(25px 25px 50px #a9ffc7) invert(7%);
-  cursor: pointer;
-}

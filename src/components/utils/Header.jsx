@@ -1,10 +1,16 @@
 import Logo from './Logo'
-import '../../css/style.css';
+import styled from 'styled-components';
+
+const ChamelodyHeader = styled.header`
+position: absolute;
+height: 8vh;
+display: inline-block;
+`
 
 export default function Header(){
   return(
-    <header className="chamelody-header" >
-            <Logo />
-    </header>
+    <ChamelodyHeader>
+      <Logo />
+    </ChamelodyHeader>
   )
 }

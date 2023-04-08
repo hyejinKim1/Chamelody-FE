@@ -52,7 +52,7 @@ const blinking = keyframes`
   
 const BlinkingBack = styled(BackHighLight)`
   ${props => props.blink ? css`animation: ${blinking} 1s ease-in-out infinite alternate;` : ''}
-  `
+`
 
 const PlayBtn = styled.img.attrs({
   src: `img/button/PlayButton.svg`,

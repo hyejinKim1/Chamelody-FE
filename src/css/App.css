@@ -12,33 +12,25 @@ code {
     monospace;
 }
 
-.App-logo {
+/* emoji Button */
+.emoji:hover {
+  filter: drop-shadow(25px 25px 50px #a9ffc7) invert(7%);
   cursor: pointer;
 }
 
-.App-logo:hover {
-  filter: drop-shadow(25px 25px 50px #a9ffc7) invert(7%); 
+/* player 변경 */
+
+.PlayerRSWP a{
+  font-size: 1.5vmin;
+  text-decoration: none;
+  margin:1vmin;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .logo-spin {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.PlayerRSWP img{
+  border-radius: 0.8vmin;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+._ContentRSWP p:nth-of-type(1) a{
+  font-size: 2.3vmin;
+  font-weight:700;
 }
-
-/* .center{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-} */
