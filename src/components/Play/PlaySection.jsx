@@ -6,6 +6,76 @@ import styled from 'styled-components';
 
 const spotifyApi = new SpotifyWebApi();
 
+export default function PlaySection() {
+  const current = sessionStorage.getItem('current');
+  const purpose = sessionStorage.getItem('purpose');
+
+  const [accessToken, setAccessToken] = useState('');
+
+  useEffect(() => {
+    // URL 파라미터에서 access_token을 가져오기
+
+    const params = new URLSearchParams(window.location.hash.substring(1));
+
+    const token = params.get('access_token');
+
+    // access_token이 있는 경우에만 설정하기
+
+    if (token) {
+      setAccessToken(token);
+      spotifyApi.setAccessToken(token);
+      window.location.hash = '';
+    }
+  }, []);
+
+  const handleLogin = () => {
+    const clientId = 'b0d11574667c403b82920e816c68ad54';
+    const redirectUri = 'http://localhost:3000/play';
+    const scopes = [
+      'user-read-private',
+      'user-read-email',
+      'user-library-read',
+      'user-library-modify',
+      'user-read-playback-state',
+      'user-modify-playback-state',
+      'user-read-currently-playing',
+      'streaming'
+    ];
+
+    // Spotify 로그인 URL 생성
+    const url = `https://accounts.spotify.com/authorize?response_type=token&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}`;
+
+    // 사용자를 Spotify 로그인 페이지로 리다이렉트
+    window.location.href = url;
+  };
+
+  return (
+    <React.Fragment>
+      <PlaySectionWrapper>
+        <PlaySide>
+          <h1>
+            from <RoundText>  &nbsp; # {current} &nbsp;</RoundText>
+            <br />
+            to <RoundText>   &nbsp; # {purpose} &nbsp;</RoundText>
+          </h1>
+          {!accessToken && (
+            <LoginBtn onClick={handleLogin}> &nbsp; Log in with Spotify &nbsp; </LoginBtn>
+          )}
+        </PlaySide>
+        <PlaylistDiv>
+          <Playlist data={MusicData}/>
+        </PlaylistDiv>
+      </PlaySectionWrapper>
+      <PlayerDiv>
+        {accessToken && (
+          <Player token={accessToken} data={MusicData}/>
+        )}
+      </PlayerDiv>
+    </React.Fragment>
+  )
+}
+
+
 const MusicData = [
   {
     "id": "4Dr2hJ3EnVh2Aaot6fRwDO",
@@ -82,10 +152,10 @@ const MusicData = [
 ]
 
 const PlaySectionWrapper = styled.div`
-display:flex;
-width:100vw;
-height: 78vh;
-color: white;
+  display:flex;
+  width:100vw;
+  height: 78vh;
+  color: white;
 `
 
 const PlaySide = styled.div`
@@ -97,104 +167,35 @@ const PlaySide = styled.div`
 `
 
 const RoundText = styled.span`
-color: black;
-border-radius: 10vmin;
-background-color: white;
-padding-bottom:1vw;
+  color: black;
+  border-radius: 10vmin;
+  background-color: white;
+  padding-bottom:1vw;
 `
 
 const PlaylistDiv = styled.div`
-background-color:rgba(255, 255, 255, 0.4);
-width:47%;
-height: 85%;
-border-radius: 5vmin;
-margin: 5vmin;
-overflow-y: scroll;
--ms-overflow-style: none;
-scrollbar-width: none;
-&::-webkit-scrollbar {
-  display: none;
-}
+  background-color:rgba(255, 255, 255, 0.4);
+  width:47%;
+  height: 85%;
+  border-radius: 5vmin;
+  margin: 5vmin;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 const LoginBtn = styled.button`
-border: none;
-border-radius: 10vmin;
-background-color:rgba(255, 255, 255, 0.7);
-padding: 1vmin;
-font-size: 1.3vw;
-font-weight:700;
-cursor:pointer;
+  border: none;
+  border-radius: 10vmin;
+  background-color:rgba(255, 255, 255, 0.7);
+  padding: 1vmin;
+  font-size: 1.3vw;
+  font-weight:700;
+  cursor:pointer;
 `
 
 const PlayerDiv = styled.div`
-height: 14vh;
+  height: 14vh;
 `
-
-export default function PlaySection() {
-  const current = sessionStorage.getItem('current');
-  const purpose = sessionStorage.getItem('purpose');
-
-  const [accessToken, setAccessToken] = useState('');
-
-  useEffect(() => {
-    // URL 파라미터에서 access_token을 가져오기
-
-    const params = new URLSearchParams(window.location.hash.substring(1));
-
-    const token = params.get('access_token');
-
-    // access_token이 있는 경우에만 설정하기
-
-    if (token) {
-      setAccessToken(token);
-      spotifyApi.setAccessToken(token);
-      window.location.hash = '';
-    }
-  }, []);
-
-  const handleLogin = () => {
-    const clientId = 'b0d11574667c403b82920e816c68ad54';
-    const redirectUri = 'http://localhost:3000/play';
-    const scopes = [
-      'user-read-private',
-      'user-read-email',
-      'user-library-read',
-      'user-library-modify',
-      'user-read-playback-state',
-      'user-modify-playback-state',
-      'user-read-currently-playing',
-      'streaming'
-    ];
-
-    // Spotify 로그인 URL 생성
-    const url = `https://accounts.spotify.com/authorize?response_type=token&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}`;
-
-    // 사용자를 Spotify 로그인 페이지로 리다이렉트
-    window.location.href = url;
-  };
-
-  return (
-    <React.Fragment>
-      <PlaySectionWrapper>
-        <PlaySide>
-          <h1>
-            from <RoundText>  &nbsp; # {current} &nbsp;</RoundText>
-            <br />
-            to <RoundText>   &nbsp; # {purpose} &nbsp;</RoundText>
-          </h1>
-          {!accessToken && (
-            <LoginBtn onClick={handleLogin}> &nbsp; Log in with Spotify &nbsp; </LoginBtn>
-          )}
-        </PlaySide>
-        <PlaylistDiv>
-          <Playlist data={MusicData}/>
-        </PlaylistDiv>
-      </PlaySectionWrapper>
-      <PlayerDiv>
-        {accessToken && (
-          <Player token={accessToken} data={MusicData}/>
-        )}
-      </PlayerDiv>
-    </React.Fragment>
-  )
-}

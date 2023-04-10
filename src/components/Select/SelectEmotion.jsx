@@ -2,67 +2,6 @@ import React from 'react';
 import Emoji from '../utils/Emoji'
 import styled from "styled-components";
 
-const SelectWrapper = styled.div`
-  opacity: 0.9;
-  background-color: rgba(70, 70, 70, 0.2);
-  width: 100vw;
-  overflow: hidden;
-  height: 34vh;
-  `
-
-  const SlideWrapper = styled.div`
-  width:200vw;
-  height:100%;
-  transition: transform 0.9s;
-  transform: ${({slide}) => {
-    if (slide === '2') {
-      return "translate(-100vw)";
-    }
-    return "translate(0)";
-  }};
-  `
-
-  const Slide = styled.div`
-  width:100vw;
-  height:100%;
-  float:left;
-  text-align: center;
-  display:flex;
-  align-items: center;
-  `
-
-  const LeftDisableBtn = styled.img.attrs({
-    src: `img/button/disable_left_button.svg`,
-    alt: "left",
-  })`
-  width: 6vmin;
-  opacity: 0.4;
-  `
-
-  const LeftBtn = styled.img.attrs({
-    src: `img/button/left_button.svg`,
-    alt: "left",
-  })`
-  width: 6vmin;
-  cursor: pointer;
-  `
-
-  const RightDisableBtn = styled.img.attrs({
-    src: `img/button/disable_right_button.svg`,
-    alt: "right",
-  })`
-  width: 6vmin;
-  opacity: 0.4;
-  `
-
-  const RightBtn = styled.img.attrs({
-    src: `img/button/right_button.svg`,
-    alt: "right",
-  })`
-  width: 6vmin;
-  cursor: pointer;
-  `
-
 export default function SelectEmotion({onClick}){
 
   const [slide, setSlide] = React.useState('1');
@@ -116,3 +55,65 @@ export default function SelectEmotion({onClick}){
     </SelectWrapper>
   )
 }
+
+
+const SelectWrapper = styled.div`
+  opacity: 0.9;
+  background-color: rgba(70, 70, 70, 0.2);
+  width: 100vw;
+  overflow: hidden;
+  height: 34vh;
+`
+
+const SlideWrapper = styled.div`
+  width:200vw;
+  height:100%;
+  transition: transform 0.9s;
+  transform: ${({slide}) => {
+    if (slide === '2') {
+      return "translate(-100vw)";
+    }
+    return "translate(0)";
+  }};
+`
+
+const Slide = styled.div`
+  width:100vw;
+  height:100%;
+  float:left;
+  text-align: center;
+  display:flex;
+  align-items: center;
+`
+
+const LeftDisableBtn = styled.img.attrs({
+  src: `img/button/disable_left_button.svg`,
+  alt: "left",
+})`
+  width: 6vmin;
+  opacity: 0.4;
+`
+
+const LeftBtn = styled.img.attrs({
+  src: `img/button/left_button.svg`,
+  alt: "left",
+})`
+  width: 6vmin;
+  cursor: pointer;
+`
+
+const RightDisableBtn = styled.img.attrs({
+  src: `img/button/disable_right_button.svg`,
+  alt: "right",
+})`
+  width: 6vmin;
+  opacity: 0.4;
+`
+
+const RightBtn = styled.img.attrs({
+  src: `img/button/right_button.svg`,
+  alt: "right",
+})`
+  width: 6vmin;
+  cursor: pointer;
+`

@@ -3,7 +3,7 @@ import Header from './components/utils/Header'
 import {Routes, Route} from 'react-router-dom';
 import './css/App.css';
 
-function App(){
+export default function App(){
   return (
     <div className="App">
       <Header/>
@@ -15,5 +15,3 @@ function App(){
     </div>
   )
 }
-
-export default App;

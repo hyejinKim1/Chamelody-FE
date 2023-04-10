@@ -1,34 +1,6 @@
 import styled from 'styled-components'
 
-const MusicInfoDiv = styled.div`
-margin-left: 2vmin;
-`
-
-const MusicName = styled.div`
-font-size:2vmin;
-font-weight:700;
-padding-bottom:0.8vmin;
-`
-const PlaylistUl = styled.ul`
-margin-left:5vmin;
-margin-right: 5vmin;
-padding: 0;
-`
-
-const PlaylistLi = styled.li`
-background-color:rgba(255, 255, 255, 0.8);
-border-radius: 5vmin;
-color:black;
-padding: 0.8vmin;
-padding-left:4vmin;
-padding-right: 5vmin;
-list-style: none;
-margin: 1vmin;
-display: flex;
-align-items: center;
-`
-
-function Playlist({ data }) {
+export default function Playlist({ data }) {
 
   return (
     <PlaylistUl>
@@ -48,4 +20,30 @@ function Playlist({ data }) {
   );
 };
 
-export default Playlist;
+const MusicInfoDiv = styled.div`
+  margin-left: 2vmin;
+`
+
+const MusicName = styled.div`
+  font-size:2vmin;
+  font-weight:700;
+  padding-bottom:0.8vmin;
+`
+const PlaylistUl = styled.ul`
+  margin-left:5vmin;
+  margin-right: 5vmin;
+  padding: 0;
+`
+
+const PlaylistLi = styled.li`
+  background-color:rgba(255, 255, 255, 0.8);
+  border-radius: 5vmin;
+  color:black;
+  padding: 0.8vmin;
+  padding-left:4vmin;
+  padding-right: 5vmin;
+  list-style: none;
+  margin: 1vmin;
+  display: flex;
+  align-items: center;
+`

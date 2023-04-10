@@ -3,6 +3,16 @@ import HomeSection from "../components/Home/HomeSection";
 import ScrollEmotion from "../components/Home/ScrollEmotion";
 import styled, { keyframes } from "styled-components";
 
+export default function Home() {
+  return (
+    <HomeWrapper>
+      <div style={{ height: "8vh" }}></div>
+      <HomeSection />
+      <ScrollEmotion />
+    </HomeWrapper>
+  );
+}
+
 const MoveGrad = keyframes`
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
@@ -14,15 +24,3 @@ const HomeWrapper = styled.div`
   background-size: 200% 200%;
   animation: ${MoveGrad} 5s ease infinite;
 `
-
-function Home() {
-  return (
-    <HomeWrapper>
-      <div style={{ height: "8vh" }}></div>
-      <HomeSection />
-      <ScrollEmotion />
-    </HomeWrapper>
-  );
-}
-
-export default Home;

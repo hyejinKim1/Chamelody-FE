@@ -2,6 +2,39 @@ import React from 'react';
 import Emoji from '../utils/Emoji'
 import styled, { keyframes } from "styled-components";
 
+export default function ScrollEmotion() {
+  return (
+    <ScrollDiv>
+      <ScrollWrapper>
+        <ScrollPrimary>
+          <Emoji emotion="Anger" src="img/emoji/Anger.svg" size="10%" emojiClass="image" />
+          <Emoji emotion="Fear" src="img/emoji/Fear.svg" size="7%" emojiClass="image" />
+          <Emoji emotion="Lonely" src="img/emoji/LonelyText.svg" size="10%" emojiClass="image" />
+          <Emoji emotion="Happiness" src="img/emoji/Happiness.svg" size="7%" emojiClass="image" />
+          <Emoji emotion="Love" src="img/emoji/Love.svg" size="10%" emojiClass="image" />
+          <Emoji emotion="Normal" src="img/emoji/Normal.svg" size="5%" emojiClass="image" />
+          <Emoji emotion="FeelTouch" src="img/emoji/FeelTouchText.svg" size="10%" emojiClass="image" />
+          <Emoji emotion="Sadness" src="img/emoji/Sadness.svg" size="8%" emojiClass="image" />
+          <Emoji emotion="Relaxation" src="img/emoji/Relaxation.svg" size="6%" emojiClass="image" />
+          <Emoji emotion="Nervous" src="img/emoji/NervousText.svg" size="10%" emojiClass="image" />
+        </ScrollPrimary>
+        <ScrollSecondary>
+          <Emoji emotion="Anger" src="img/emoji/Anger.svg" size="10%" emojiClass="image" />
+          <Emoji emotion="Fear" src="img/emoji/Fear.svg" size="7%" emojiClass="image" />
+          <Emoji emotion="Lonely" src="img/emoji/LonelyText.svg" size="10%" emojiClass="image" />
+          <Emoji emotion="Happiness" src="img/emoji/Happiness.svg" size="7%" emojiClass="image" />
+          <Emoji emotion="Love" src="img/emoji/Love.svg" size="10%" emojiClass="image" />
+          <Emoji emotion="Normal" src="img/emoji/Normal.svg" size="5%" emojiClass="image" />
+          <Emoji emotion="FeelTouch" src="img/emoji/FeelTouchText.svg" size="10%" emojiClass="image" />
+          <Emoji emotion="Sadness" src="img/emoji/Sadness.svg" size="8%" emojiClass="image" />
+          <Emoji emotion="Relaxation" src="img/emoji/Relaxation.svg" size="6%" emojiClass="image" />
+          <Emoji emotion="Nervous" src="img/emoji/NervousText.svg" size="10%" emojiClass="image" />
+        </ScrollSecondary>
+      </ScrollWrapper>
+    </ScrollDiv>
+  )
+}
+
 const ScrollDiv = styled.div`
   opacity: 0.9;
   background-color: rgba(140, 229, 189, 0.2);
@@ -49,7 +82,6 @@ const secondary = keyframes`
   }
 `;
 
-
 const ScrollPrimary = styled(ScrollElement)`
   animation: ${primary} 20s linear infinite; 
 `
@@ -57,36 +89,3 @@ const ScrollPrimary = styled(ScrollElement)`
 const ScrollSecondary = styled(ScrollElement)`
   animation: ${secondary} 20s linear infinite; 
 `
-
-export default function ScrollEmotion(){
-  return(
-    <ScrollDiv>
-      <ScrollWrapper>
-        <ScrollPrimary>
-          <Emoji emotion = "Anger" src = "img/emoji/Anger.svg" size = "10%" emojiClass="image"/>
-          <Emoji emotion = "Fear" src = "img/emoji/Fear.svg" size = "7%" emojiClass="image"/>
-          <Emoji emotion = "Lonely" src = "img/emoji/LonelyText.svg" size = "10%" emojiClass="image"/>
-          <Emoji emotion = "Happiness" src = "img/emoji/Happiness.svg" size = "7%" emojiClass="image"/>
-          <Emoji emotion = "Love" src = "img/emoji/Love.svg" size = "10%" emojiClass="image"/>
-          <Emoji emotion = "Normal" src = "img/emoji/Normal.svg" size = "5%" emojiClass="image"/>
-          <Emoji emotion = "FeelTouch" src = "img/emoji/FeelTouchText.svg" size = "10%" emojiClass="image"/>
-          <Emoji emotion = "Sadness" src = "img/emoji/Sadness.svg" size = "8%" emojiClass="image"/>
-          <Emoji emotion = "Relaxation" src = "img/emoji/Relaxation.svg" size = "6%" emojiClass="image"/>
-          <Emoji emotion = "Nervous" src = "img/emoji/NervousText.svg" size = "10%" emojiClass="image"/>
-        </ScrollPrimary>
-        <ScrollSecondary>
-          <Emoji emotion = "Anger" src = "img/emoji/Anger.svg" size = "10%" emojiClass="image"/>
-          <Emoji emotion = "Fear" src = "img/emoji/Fear.svg" size = "7%" emojiClass="image"/>
-          <Emoji emotion = "Lonely" src = "img/emoji/LonelyText.svg" size = "10%" emojiClass="image"/>
-          <Emoji emotion = "Happiness" src = "img/emoji/Happiness.svg" size = "7%" emojiClass="image"/>
-          <Emoji emotion = "Love" src = "img/emoji/Love.svg" size = "10%" emojiClass="image"/>
-          <Emoji emotion = "Normal" src = "img/emoji/Normal.svg" size = "5%" emojiClass="image"/>
-          <Emoji emotion = "FeelTouch" src = "img/emoji/FeelTouchText.svg" size = "10%" emojiClass="image"/>
-          <Emoji emotion = "Sadness" src = "img/emoji/Sadness.svg" size = "8%" emojiClass="image"/>
-          <Emoji emotion = "Relaxation" src = "img/emoji/Relaxation.svg" size = "6%" emojiClass="image"/>
-          <Emoji emotion = "Nervous" src = "img/emoji/NervousText.svg" size = "10%" emojiClass="image"/>
-        </ScrollSecondary>
-      </ScrollWrapper>
-    </ScrollDiv>
-  )
-}

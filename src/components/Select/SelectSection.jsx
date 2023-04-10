@@ -10,64 +10,6 @@ import { HomeSubTitle } from '../Home/HomeSection.jsx';
 import { BorderHighLight } from '../Home/HomeSection.jsx';
 import { BackHighLight } from '../Home/HomeSection.jsx';
 
-const XBtn = styled.span`
-  color: rgb(122, 122, 122);
-  font-size:5vmin;
-  font-weight:lighter;
-  line-height:100px;
-  cursor: pointer;
-  display: ${({visible}) => {
-    if (visible) {
-      return "inline";
-    }
-    return "none";
-  }};
-  `
-
-const PlayImage = styled.img.attrs({
-  src: `img/button/PlayButton.svg`,
-  alt: "play",
-})`
-width: 7vmin;
-margin-bottom: -0.9vmin;
-`
-
-const Instruction = styled.p`
-  font-size: 2.5vmin;
-`
-
-const InstructionDiv = styled.div`
-  position: absolute;
-  bottom:0;
-`
-
-const blinking = keyframes`
-0% {
-  opacity:0.5;
-}
-100% {
-  opacity:1;
-}
-`
-  
-const BlinkingBack = styled(BackHighLight)`
-  ${props => props.blink ? css`animation: ${blinking} 1s ease-in-out infinite alternate;` : ''}
-`
-
-const PlayBtn = styled.img.attrs({
-  src: `img/button/PlayButton.svg`,
-  alt: "play",
-})`
-width: 17vmin;
-cursor: pointer;
-display: ${({visible}) => {
-  if (visible) {
-    return "flex";
-  }
-  return "none";
-}};
-`
-
 export default function SelectSection() {
   const [current, setCurrent] = useState('your current mood');
   const [purpose, setPurpose] = useState('the mood you want to be');
@@ -164,3 +106,61 @@ export default function SelectSection() {
     </React.Fragment>
   )
 }
+
+const XBtn = styled.span`
+  color: rgb(122, 122, 122);
+  font-size:5vmin;
+  font-weight:lighter;
+  line-height:100px;
+  cursor: pointer;
+  display: ${({visible}) => {
+    if (visible) {
+      return "inline";
+    }
+    return "none";
+  }};
+  `
+
+const PlayImage = styled.img.attrs({
+  src: `img/button/PlayButton.svg`,
+  alt: "play",
+})`
+  width: 7vmin;
+  margin-bottom: -0.9vmin;
+`
+
+const Instruction = styled.p`
+  font-size: 2.5vmin;
+`
+
+const InstructionDiv = styled.div`
+  position: absolute;
+  bottom:0;
+`
+
+const blinking = keyframes`
+  0% {
+    opacity:0.5;  
+  }
+  100% {
+    opacity:1;
+  }
+`
+  
+const BlinkingBack = styled(BackHighLight)`
+  ${props => props.blink ? css`animation: ${blinking} 1s ease-in-out infinite alternate;` : ''}
+`
+
+const PlayBtn = styled.img.attrs({
+  src: `img/button/PlayButton.svg`,
+  alt: "play",
+})`
+  width: 17vmin;
+  cursor: pointer;
+  display: ${({visible}) => {
+    if (visible) {
+      return "flex";
+    }
+    return "none";
+  }};
+`

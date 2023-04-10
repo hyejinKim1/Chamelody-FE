@@ -28,16 +28,3 @@ export default function Player({ token, data}) {
       />
   );
 };
-
-/* <ul>
-{playlist.map((music) => (
-  <li key={music.id}>
-    <span><img src={music.imageUrl}
-      alt="album img"
-      width="65vw"
-      style={{ borderRadius: "0.5vmin" }} />
-    &nbsp;&nbsp; {music.name} - {music.artists.map((artist) => artist).join(", ")}&nbsp;</span>
-    <span> <button disabled={currentTrack === "spotify:track:" + music.id} onClick={() => handlePlay(music)}><img src="img/button/MusicPlayBtn.svg" width="60vmin" alt="play"/></button></span>
-  </li>
-))}
-</ul> */

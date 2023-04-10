@@ -3,6 +3,29 @@ import styled from "styled-components";
 import Button from '../utils/Button';
 import { ChamelodyImage } from '../utils/ImageLogo';
 
+export default function HomeSection() {
+  return (
+    <HomeMain>
+      <HomeTitle>
+        Change your <BorderHighLight>&nbsp;&nbsp;mood&nbsp;&nbsp;</BorderHighLight> <br />
+        with a -
+        <LogoImage />
+        &nbsp;<br />
+        <BackHighLight>&nbsp;&nbsp;#Chamelody&nbsp;&nbsp;</BackHighLight> playlist
+      </HomeTitle>
+      <HomeExplain>
+        <HomeSubTitle>
+          Chamelody brings you a new experience.<br />
+          Click the emoji that matches your current mood and the mood you want to be. <br />
+          If you listen to the playlist created by Chamelody, you can feel the mood you want
+        </HomeSubTitle>
+        <Button link="/select" alt="start" src="img/button/start_button.svg" />
+      </HomeExplain>
+    </HomeMain>
+  )
+}
+
+
 export const HomeMain = styled.div`
   min-height: 58vh;
   display: flex;
@@ -45,25 +68,3 @@ export const BackHighLight = styled.span`
 const LogoImage = styled(ChamelodyImage)`
   margin-bottom: -2vw;
 `
-
-export default function HomeSection() {
-  return (
-    <HomeMain>
-      <HomeTitle>
-        Change your <BorderHighLight>&nbsp;&nbsp;mood&nbsp;&nbsp;</BorderHighLight> <br />
-        with a -
-        <LogoImage />
-        &nbsp;<br />
-        <BackHighLight>&nbsp;&nbsp;#Chamelody&nbsp;&nbsp;</BackHighLight> playlist
-      </HomeTitle>
-      <HomeExplain>
-        <HomeSubTitle>
-          Chamelody brings you a new experience.<br />
-          Click the emoji that matches your current mood and the mood you want to be. <br />
-          If you listen to the playlist created by Chamelody, you can feel the mood you want
-        </HomeSubTitle>
-        <Button link="/select" alt="start" src="img/button/start_button.svg"/>
-      </HomeExplain>
-    </HomeMain>
-  )
-}
