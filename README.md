@@ -1,5 +1,9 @@
 # Chamelody
 CNU-SW-Academy Chamelody Project
+팀프로젝트 + 기업프로젝트
+
+![image](https://user-images.githubusercontent.com/44044018/231035365-33d3e99a-c342-4f7a-aafa-1eb5286e2289.png)
+
 
 카멜로디 서비스는 원하는 감정으로 변화시킬 수 있는 플레이리스트를 만들어주는 서비스이다.
 
