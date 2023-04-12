@@ -1,13 +1,16 @@
-import { useState } from 'react';
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 export default function SearchMusic({ visible }) {
+
+  const searchClick = () => {
+
+  }
 
   return (
     <SearchWrapper visible={visible}>
       <Search>
         <Input visible={visible} />
-        <SearchBtn visible={visible} />
+        <SearchBtn visible={visible} onClick={searchClick}/>
       </Search>
     </SearchWrapper>
   )
