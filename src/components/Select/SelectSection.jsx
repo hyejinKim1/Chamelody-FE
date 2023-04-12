@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import SelectEmotion from './SelectEmotion'
+import SearchMusic from './SearchMusic';
 import styled, { keyframes, css } from "styled-components";
 
 import { HomeMain } from '../Home/HomeSection.jsx'
@@ -22,6 +23,9 @@ export default function SelectSection() {
   const [purposeBlink, setPurposeBlink] = useState(false);
 
   const [showBtn, setShowBtn] = useState(false);
+
+  const [currentSearch, setCurrentSearch] = useState(false);
+  const [purposeSearch, setPurposeSearch] = useState(false);
 
   const EmojiClick = (e) => {
     e.preventDefault();
@@ -46,6 +50,7 @@ export default function SelectSection() {
     e.preventDefault();
     setCurrent('your current mood');
     setCurrentXVisible(false);
+    setCurrentSearch(false);
     sessionStorage.removeItem('current');
 
     setCurrentBlink(true);
@@ -58,12 +63,29 @@ export default function SelectSection() {
     e.preventDefault();
     setPurpose('the mood you want to be');
     setPurposeXVisible(false);
+    setPurposeSearch(false);
     sessionStorage.removeItem('purpose');
 
     if(currentBlink === false){
       setPurposeBlink(true);
     }
   };
+
+  const currentSearchClick = () => {
+    if(currentSearch === false){
+      setCurrentSearch(true);
+    }else{
+      setCurrentSearch(false);
+    }
+  }
+
+  const purposeSearchClick = () => {
+    if(purposeSearch === false){
+      setPurposeSearch(true);
+    }else{
+      setPurposeSearch(false);
+    }
+  }
 
   useEffect(() => {
     if(currentBlink === true){
@@ -82,10 +104,23 @@ export default function SelectSection() {
     <React.Fragment>
       <HomeMain>
         <HomeTitle>
-            I want to <BorderHighLight> &nbsp; Chamelody &nbsp; </BorderHighLight> <br />
-            from <BlinkingBack color="black" blink={currentBlink}> &nbsp; # {current} &nbsp;<XBtn onClick={CurrentxClick} visible={currentXVisible}>×</XBtn> &nbsp;</BlinkingBack>
-            &nbsp;to <BlinkingBack color="black" blink={purposeBlink}>   &nbsp; # {purpose} &nbsp;<XBtn onClick=
-            {PurposexClick} visible={purposeXVisible}>×</XBtn> &nbsp;</BlinkingBack>
+            I want to <BorderHighLight>Chamelody</BorderHighLight><br />
+            from 
+            <BlinkingBack color="black" blink={currentBlink} >
+              # {current}
+              <MusicBtn onClick={currentSearchClick} visible={currentXVisible}/>
+              <XBtn onClick={CurrentxClick} visible={currentXVisible}>×</XBtn>
+              <br/>
+              <SearchMusic visible={currentSearch}></SearchMusic>
+            </BlinkingBack> 
+            to 
+            <BlinkingBack color="black" blink={purposeBlink}>
+              # {purpose}
+              <MusicBtn onClick={purposeSearchClick} visible={purposeXVisible} />
+              <XBtn onClick={PurposexClick} visible={purposeXVisible}>×</XBtn>
+              <br/>
+              <SearchMusic visible={purposeSearch}></SearchMusic>
+            </BlinkingBack>
         </HomeTitle>
         <HomeExplain>
           <HomeSubTitle>
@@ -101,7 +136,6 @@ export default function SelectSection() {
           <Instruction>{explain}</Instruction>
         </InstructionDiv>
       </HomeMain>
-
       <SelectEmotion onClick={EmojiClick}></SelectEmotion>
     </React.Fragment>
   )
@@ -109,7 +143,7 @@ export default function SelectSection() {
 
 const XBtn = styled.span`
   color: rgb(122, 122, 122);
-  font-size:5vmin;
+  font-size:2.5vw;
   font-weight:lighter;
   line-height:100px;
   cursor: pointer;
@@ -119,7 +153,23 @@ const XBtn = styled.span`
     }
     return "none";
   }};
-  `
+`
+
+const MusicBtn = styled.img.attrs({
+  src: `img/button/Music.svg`,
+  alt: "search",
+})`
+  width: 1.5vw;
+  cursor: pointer;
+  margin-left: 1.5vw;
+  margin-right: 0.4vw;
+  display: ${({visible}) => {
+    if (visible) {
+      return "inline";
+    }
+    return "none";
+  }};
+`
 
 const PlayImage = styled.img.attrs({
   src: `img/button/PlayButton.svg`,
@@ -148,6 +198,8 @@ const blinking = keyframes`
 `
   
 const BlinkingBack = styled(BackHighLight)`
+  margin-left: 1vw;
+  margin-right: 1vw;
   ${props => props.blink ? css`animation: ${blinking} 1s ease-in-out infinite alternate;` : ''}
 `
 

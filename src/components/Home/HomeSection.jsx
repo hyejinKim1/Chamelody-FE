@@ -7,11 +7,11 @@ export default function HomeSection() {
   return (
     <HomeMain>
       <HomeTitle>
-        Change your <BorderHighLight>&nbsp;&nbsp;mood&nbsp;&nbsp;</BorderHighLight> <br />
+        Change your <BorderHighLight>mood</BorderHighLight> <br />
         with a -
         <LogoImage />
-        &nbsp;<br />
-        <BackHighLight>&nbsp;&nbsp;#Chamelody&nbsp;&nbsp;</BackHighLight> playlist
+        <br />
+        <BackHighLight>#Chamelody</BackHighLight> playlist
       </HomeTitle>
       <HomeExplain>
         <HomeSubTitle>
@@ -38,7 +38,6 @@ export const HomeMain = styled.div`
 
 export const HomeTitle = styled.h1`
   font-size: 2.9vw;
-  line-height: 2;
 `
 
 export const HomeExplain = styled.div`
@@ -53,15 +52,21 @@ export const HomeSubTitle = styled.p`
 `
 
 export const BorderHighLight = styled.span`
-  border-radius: 5vmin;
+  border-radius: 2.5vw;
   border: 0.4vmin solid white;
-  padding-bottom: 1vmin;
+  padding-bottom: 0.5vw;
+  padding-right: 1vw;
+  padding-left: 1vw;
 `
 
-export const BackHighLight = styled.span`
-  border-radius: 5vmin;
+export const BackHighLight = styled.div`
+  display: inline-block;
+  border-radius: 2.5vw;
   background-color: white;
-  padding-bottom: 1vmin;
+  padding-bottom: 0.3vw;
+  padding-right: 1.3vw;
+  padding-left: 1.3vw;
+  margin-top: 1.7vw;
   color: ${props => props.color || "#1ED760"};
 `
 
