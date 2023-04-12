@@ -34,10 +34,6 @@ const Search = styled.div`
   width: 100%;
   text-align: center;
 `
-const SearchExplain = styled.p`
-  font-size: 0.8vw;
-  font-weight: 400;
-`
 
 const Input = styled.input.attrs({
   type: "text",
