@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import SelectEmotion from './SelectEmotion'
-import SearchMusic from './SearchMusic';
-import styled, { keyframes, css } from "styled-components";
+import EmotionSection from './EmotionSection'
+import styled from "styled-components";
+import SelectedEmotion from './SelectedEmotion';
 
-import { HomeMain } from '../Home/HomeSection.jsx'
-import { HomeTitle } from '../Home/HomeSection.jsx';
-import { HomeExplain } from '../Home/HomeSection.jsx';
-import { HomeSubTitle } from '../Home/HomeSection.jsx';
-import { BorderHighLight } from '../Home/HomeSection.jsx';
-import { BackHighLight } from '../Home/HomeSection.jsx';
+import { HomeMain, HomeTitle, HomeExplain, HomeSubTitle, BorderHighLight} from '../Home/HomeSection.jsx'
 
 export default function SelectSection() {
   const [current, setCurrent] = useState('your current mood');
@@ -24,8 +19,43 @@ export default function SelectSection() {
 
   const [showBtn, setShowBtn] = useState(false);
 
-  const [currentSearch, setCurrentSearch] = useState(false);
-  const [purposeSearch, setPurposeSearch] = useState(false);
+  const [currentSearch, setCurrentSearch] = useState("0");
+  const [purposeSearch, setPurposeSearch] = useState("0");
+
+  const [accessToken, setAccessToken] = useState();
+
+  useEffect(() => {
+    // URL 파라미터에서 access_token을 가져오기
+    const params = new URLSearchParams(window.location.hash.substring(1));
+
+    const token = params.get('access_token');
+
+    // access_token이 있는 경우에만 설정하기
+
+    if (token) {
+      const expirationDate = new Date().getTime() + (60*60*1000)
+      sessionStorage.setItem('accessToken',JSON.stringify({token:token, expiration: expirationDate }));
+      window.location.hash = '';
+      setAccessToken(token);
+    }else{
+      const accessData = sessionStorage.getItem('accessToken');
+      if(!accessData){
+        window.location.href = "http://localhost:3000";
+        alert("다시 로그인해주세요.");
+      }
+      else{
+        const loginData = JSON.parse(accessData);
+        if( new Date().getTime() > loginData.expiration ){
+        sessionStorage.removeItem('accessToken');
+        window.location.href = "http://localhost:3000";
+        alert("다시 로그인해주세요.");
+        }else{
+          setAccessToken(loginData.token);
+        }
+      }
+    }
+
+  },[]);
 
   const EmojiClick = (e) => {
     e.preventDefault();
@@ -50,7 +80,7 @@ export default function SelectSection() {
     e.preventDefault();
     setCurrent('your current mood');
     setCurrentXVisible(false);
-    setCurrentSearch(false);
+    setCurrentSearch("0");
     sessionStorage.removeItem('current');
 
     setCurrentBlink(true);
@@ -63,7 +93,7 @@ export default function SelectSection() {
     e.preventDefault();
     setPurpose('the mood you want to be');
     setPurposeXVisible(false);
-    setPurposeSearch(false);
+    setPurposeSearch("0");
     sessionStorage.removeItem('purpose');
 
     if(currentBlink === false){
@@ -72,18 +102,18 @@ export default function SelectSection() {
   };
 
   const currentSearchClick = () => {
-    if(currentSearch === false){
-      setCurrentSearch(true);
+    if(currentSearch === "0"){
+      setCurrentSearch("15vh");
     }else{
-      setCurrentSearch(false);
+      setCurrentSearch("0");
     }
   }
 
   const purposeSearchClick = () => {
-    if(purposeSearch === false){
-      setPurposeSearch(true);
+    if(purposeSearch === "0"){
+      setPurposeSearch("15vh");
     }else{
-      setPurposeSearch(false);
+      setPurposeSearch("0");
     }
   }
 
@@ -106,21 +136,9 @@ export default function SelectSection() {
         <HomeTitle>
             I want to <BorderHighLight>Chamelody</BorderHighLight><br />
             from 
-            <BlinkingBack color="black" blink={currentBlink} >
-              # {current}
-              <MusicBtn onClick={currentSearchClick} visible={currentXVisible}/>
-              <XBtn onClick={CurrentxClick} visible={currentXVisible}>×</XBtn>
-              <br/>
-              <SearchMusic visible={currentSearch}></SearchMusic>
-            </BlinkingBack> 
+            <SelectedEmotion blink={currentBlink} emotion = {current} visible={currentXVisible} search={currentSearch} token={accessToken} searchClick={currentSearchClick} xClick={CurrentxClick}></SelectedEmotion>
             to 
-            <BlinkingBack color="black" blink={purposeBlink}>
-              # {purpose}
-              <MusicBtn onClick={purposeSearchClick} visible={purposeXVisible} />
-              <XBtn onClick={PurposexClick} visible={purposeXVisible}>×</XBtn>
-              <br/>
-              <SearchMusic visible={purposeSearch}></SearchMusic>
-            </BlinkingBack>
+            <SelectedEmotion blink={purposeBlink} emotion = {purpose} visible={purposeXVisible} search={purposeSearch} token={accessToken} searchClick={purposeSearchClick} xclick={PurposexClick}></SelectedEmotion>
         </HomeTitle>
         <HomeExplain>
           <HomeSubTitle>
@@ -136,40 +154,10 @@ export default function SelectSection() {
           <Instruction>{explain}</Instruction>
         </InstructionDiv>
       </HomeMain>
-      <SelectEmotion onClick={EmojiClick}></SelectEmotion>
+      <EmotionSection onClick={EmojiClick}></EmotionSection>
     </React.Fragment>
   )
 }
-
-const XBtn = styled.span`
-  color: rgb(122, 122, 122);
-  font-size:2.5vw;
-  font-weight:lighter;
-  line-height:100px;
-  cursor: pointer;
-  display: ${({visible}) => {
-    if (visible) {
-      return "inline";
-    }
-    return "none";
-  }};
-`
-
-const MusicBtn = styled.img.attrs({
-  src: `img/button/Music.svg`,
-  alt: "search",
-})`
-  width: 1.5vw;
-  cursor: pointer;
-  margin-left: 1.5vw;
-  margin-right: 0.4vw;
-  display: ${({visible}) => {
-    if (visible) {
-      return "inline";
-    }
-    return "none";
-  }};
-`
 
 const PlayImage = styled.img.attrs({
   src: `img/button/PlayButton.svg`,
@@ -185,24 +173,8 @@ const Instruction = styled.p`
 
 const InstructionDiv = styled.div`
   position: absolute;
-  bottom:0;
+  bottom:1vh;
 `
-
-const blinking = keyframes`
-  0% {
-    opacity:0.5;  
-  }
-  100% {
-    opacity:1;
-  }
-`
-  
-const BlinkingBack = styled(BackHighLight)`
-  margin-left: 1vw;
-  margin-right: 1vw;
-  ${props => props.blink ? css`animation: ${blinking} 1s ease-in-out infinite alternate;` : ''}
-`
-
 const PlayBtn = styled.img.attrs({
   src: `img/button/PlayButton.svg`,
   alt: "play",

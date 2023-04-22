@@ -1,31 +1,46 @@
+import { useState } from 'react'
 import styled from 'styled-components'
+import SearchResult from './SearchResult';
 
-export default function SearchMusic({ visible }) {
+export default function SearchMusic({ visible, token }) {
+  const [search, setSearch] = useState('');
+  const [result, setResult] = useState();
 
-  const searchClick = () => {
+  const handleInputChange = (e) => {
+    setSearch(e.target.value);
+  };
 
+  const searchBtnClick = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${search}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+      const data = await response.json();
+      setResult(data.tracks.items);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
-    <SearchWrapper visible={visible}>
+    <SearchWrapper height={visible}>
       <Search>
-        <Input visible={visible} />
-        <SearchBtn visible={visible} onClick={searchClick}/>
+        <Input value={search} onChange={handleInputChange} />
+        <SearchBtn onClick={searchBtnClick} />
       </Search>
+      {result && <SearchResult result={result}/>}
     </SearchWrapper>
   )
 }
 
 const SearchWrapper = styled.div`
-  display: flex;
   width: 100%;
   overflow: hidden;
-  max-height: ${({visible}) => {
-    if (visible) {
-      return "4.5vw";
-    }
-    return "0";
-  }};
+  max-height: ${props => props.height};
   transition: all 0.7s;
 `
 
@@ -33,6 +48,7 @@ const Search = styled.div`
   display: inline-block; 
   width: 100%;
   text-align: center;
+  margin-bottom: 5px;
 `
 
 const Input = styled.input.attrs({
@@ -43,7 +59,6 @@ const Input = styled.input.attrs({
   border: 0.15vw solid black;
   border-radius:10vw;
   padding: 0.5vw;
-  margin-bottom: 0.5vw;
 `
 
 const SearchBtn = styled.img.attrs({
