@@ -1,20 +1,25 @@
 import styled, { keyframes, css } from "styled-components";
 import SearchMusic from './SearchMusic';
-
 import { BackHighLight } from '../Home/HomeSection.jsx'
 
-export default function SelectedEmotion({blink,emotion, visible, search, token, searchClick, xClick}){
+export default function SelectedEmotion({ blink, emotion, visible, search, token, searchClick, xClick, xDelete }){
 
   return(
     <BlinkingBack color="black" blink={blink} >
-      # {emotion}
-      <MusicBtn onClick={searchClick} visible={visible}/>
-      <XBtn onClick={xClick} visible={visible}>×</XBtn>
-      <SearchMusic visible={search} token={token}></SearchMusic>
+      <LineHeight>
+        # {emotion}
+        <MusicBtn onClick={searchClick} visible={visible}/>
+        <XBtn onClick={xClick} visible={visible}>×</XBtn>
+        <SearchMusic visible={search} token={token} xDelete={xDelete}></SearchMusic>
+      </LineHeight> 
     </BlinkingBack> 
   )
 }
 
+const LineHeight = styled.div`
+  display: inline-block;
+  padding: 0;
+`
 
 const XBtn = styled.span`
   color: rgb(122, 122, 122);
@@ -57,7 +62,7 @@ const blinking = keyframes`
 `
   
 const BlinkingBack = styled(BackHighLight)`
-  margin-left: 0.5vw;
-  margin-right: 0.5vw;
+  margin: 0 1vw 0 1vw;
+  padding-bottom: 0;
   ${props => props.blink ? css`animation: ${blinking} 1s ease-in-out infinite alternate;` : ''}
 `

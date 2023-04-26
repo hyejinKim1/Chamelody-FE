@@ -22,6 +22,9 @@ export default function SelectSection() {
   const [currentSearch, setCurrentSearch] = useState("0");
   const [purposeSearch, setPurposeSearch] = useState("0");
 
+  const [currentX, setCurrentX] = useState(false);
+  const [purposeX, setPurposeX] = useState(false);
+
   const [accessToken, setAccessToken] = useState();
 
   useEffect(() => {
@@ -64,6 +67,7 @@ export default function SelectSection() {
       setCurrentXVisible(true);
       sessionStorage.setItem('current',e.target.id);
       setCurrentBlink(false);
+      setCurrentX(false);
 
       if(purpose === 'the mood you want to be'){
         setPurposeBlink(true);
@@ -73,6 +77,7 @@ export default function SelectSection() {
       setPurposeXVisible(true);
       sessionStorage.setItem('purpose',e.target.id);
       setPurposeBlink(false);
+      setPurposeX(false);
     } 
   };
 
@@ -81,6 +86,7 @@ export default function SelectSection() {
     setCurrent('your current mood');
     setCurrentXVisible(false);
     setCurrentSearch("0");
+    setCurrentX(true);
     sessionStorage.removeItem('current');
 
     setCurrentBlink(true);
@@ -94,6 +100,7 @@ export default function SelectSection() {
     setPurpose('the mood you want to be');
     setPurposeXVisible(false);
     setPurposeSearch("0");
+    setPurposeX(true);
     sessionStorage.removeItem('purpose');
 
     if(currentBlink === false){
@@ -103,7 +110,7 @@ export default function SelectSection() {
 
   const currentSearchClick = () => {
     if(currentSearch === "0"){
-      setCurrentSearch("15vh");
+      setCurrentSearch("29vh");
     }else{
       setCurrentSearch("0");
     }
@@ -111,7 +118,7 @@ export default function SelectSection() {
 
   const purposeSearchClick = () => {
     if(purposeSearch === "0"){
-      setPurposeSearch("15vh");
+      setPurposeSearch("29vh");
     }else{
       setPurposeSearch("0");
     }
@@ -135,10 +142,18 @@ export default function SelectSection() {
       <HomeMain>
         <HomeTitle>
             I want to <BorderHighLight>Chamelody</BorderHighLight><br />
+            <Vertical>
             from 
-            <SelectedEmotion blink={currentBlink} emotion = {current} visible={currentXVisible} search={currentSearch} token={accessToken} searchClick={currentSearchClick} xClick={CurrentxClick}></SelectedEmotion>
+            </Vertical>
+            <Vertical>
+            <SelectedEmotion blink={currentBlink} emotion = {current} visible={currentXVisible} search={currentSearch} token={accessToken} searchClick={currentSearchClick} xClick={CurrentxClick} xDelete={currentX}></SelectedEmotion>
+            </Vertical>
+            <Vertical>
             to 
-            <SelectedEmotion blink={purposeBlink} emotion = {purpose} visible={purposeXVisible} search={purposeSearch} token={accessToken} searchClick={purposeSearchClick} xclick={PurposexClick}></SelectedEmotion>
+            </Vertical>
+            <Vertical>
+            <SelectedEmotion blink={purposeBlink} emotion = {purpose} visible={purposeXVisible} search={purposeSearch} token={accessToken} searchClick={purposeSearchClick} xClick={PurposexClick} xDelete={purposeX}></SelectedEmotion>
+            </Vertical>
         </HomeTitle>
         <HomeExplain>
           <HomeSubTitle>
@@ -158,6 +173,12 @@ export default function SelectSection() {
     </React.Fragment>
   )
 }
+
+const Vertical = styled.div`
+  display: inline-block; 
+  vertical-align: top;
+  margin-top: 30px;
+`
 
 const PlayImage = styled.img.attrs({
   src: `img/button/PlayButton.svg`,

@@ -29,11 +29,13 @@ export default function Login(){
 }
 
 const LoginBtn = styled.button`
-  border: none;
-  border-radius: 10vmin;
-  background-color:rgba(255, 255, 255, 0.7);
-  padding: 1vmin;
-  font-size: 1.3vw;
-  font-weight:700;
+  border: 0.3vh dashed white;
+  border-radius: 5vh;
+  color: white;
+  background: none;
+  padding: calc(0.5vh + 0.4vw);
+  font-size: calc(0.7vh + 0.7vw);
+  font-weight:700; 
   cursor:pointer;
+  white-space: nowrap;
 `
