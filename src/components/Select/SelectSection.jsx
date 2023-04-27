@@ -27,6 +27,8 @@ export default function SelectSection() {
 
   const [accessToken, setAccessToken] = useState();
 
+  const RedirectUrl = "http://localhost:3000"
+
   useEffect(() => {
     // URL 파라미터에서 access_token을 가져오기
     const params = new URLSearchParams(window.location.hash.substring(1));
@@ -43,14 +45,14 @@ export default function SelectSection() {
     }else{
       const accessData = sessionStorage.getItem('accessToken');
       if(!accessData){
-        window.location.href = "https://chamelody.netlify.app/";
+        window.location.href = RedirectUrl;
         alert("다시 로그인해주세요.");
       }
       else{
         const loginData = JSON.parse(accessData);
         if( new Date().getTime() > loginData.expiration ){
         sessionStorage.removeItem('accessToken');
-        window.location.href = "https://chamelody.netlify.app/";
+        window.location.href = RedirectUrl;
         alert("다시 로그인해주세요.");
         }else{
           setAccessToken(loginData.token);
@@ -205,7 +207,7 @@ const PlayBtn = styled.img.attrs({
 })`
   width: 17vmin;
   cursor: pointer;
-  margin: 0 1vh 2vh 0;
+  margin: 0 4vh 3vh 0;
   display: ${({visible}) => {
     if (visible) {
       return "flex";
@@ -216,7 +218,7 @@ const PlayBtn = styled.img.attrs({
 
 const SelectSubTitle = styled(HomeSubTitle)`
   position: absolute;
-  bottom: 10vh;
+  bottom: 11vh;
   padding: 0;
   padding-right: 2.5vh;
 `

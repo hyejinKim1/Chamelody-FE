@@ -28,5 +28,6 @@ const LoadingWrapper = styled.div`
   width: 100vw;
   background: linear-gradient(50deg, #4e86ee, #1ED760, #bc67ff);
   background-size: 200% 200%;
+  opacity: 0.7;
   animation: ${MoveGrad} 5s ease infinite;
 `

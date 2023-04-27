@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Player from "./Player";
 import Playlist from "./Playlist";
 import styled from 'styled-components';

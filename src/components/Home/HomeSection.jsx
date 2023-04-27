@@ -75,7 +75,7 @@ const HomeExplain = styled.div`
   justify-content: space-between;
   line-height: 1.5;
   z-index: 100;
-  margin-top: 1vh;
+  margin-top: 2vh;
 `
 
 const HomeSubTitle = styled.div`

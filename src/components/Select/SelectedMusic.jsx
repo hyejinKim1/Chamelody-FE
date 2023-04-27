@@ -62,6 +62,7 @@ const Music = styled.div`
 
 const ImgBox = styled.div`
   margin:0;
+  margin-top: 0.7vh;
 `
 
 const Name = styled.div`
