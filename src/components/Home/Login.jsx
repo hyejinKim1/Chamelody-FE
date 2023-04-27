@@ -4,7 +4,7 @@ export default function Login(){
 
   const handleLogin = () => {
     const clientId = 'b0d11574667c403b82920e816c68ad54';
-    const redirectUri = 'http://localhost:3000/select';
+    const redirectUri = 'https://chamelody.netlify.app/select';
     const scopes = [
       'user-read-private',
       'user-read-email',

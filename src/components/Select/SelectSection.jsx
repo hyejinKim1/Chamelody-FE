@@ -43,14 +43,14 @@ export default function SelectSection() {
     }else{
       const accessData = sessionStorage.getItem('accessToken');
       if(!accessData){
-        window.location.href = "http://localhost:3000";
+        window.location.href = "https://chamelody.netlify.app/";
         alert("다시 로그인해주세요.");
       }
       else{
         const loginData = JSON.parse(accessData);
         if( new Date().getTime() > loginData.expiration ){
         sessionStorage.removeItem('accessToken');
-        window.location.href = "http://localhost:3000";
+        window.location.href = "https://chamelody.netlify.app/";
         alert("다시 로그인해주세요.");
         }else{
           setAccessToken(loginData.token);
