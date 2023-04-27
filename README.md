@@ -1,6 +1,5 @@
 # Chamelody
 CNU-SW-Academy Chamelody Project
-(팀프로젝트 + 기업프로젝트)
 
 ![image](https://user-images.githubusercontent.com/44044018/231035365-33d3e99a-c342-4f7a-aafa-1eb5286e2289.png)
 
