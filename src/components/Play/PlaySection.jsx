@@ -1,15 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Player from "./Player";
 import Playlist from "./Playlist";
 import styled from 'styled-components';
-import { ApiEmotion } from '../utils/ApiEmotion';
 
-export default function PlaySection({current, purpose}) {
+export default function PlaySection({ current, purpose, MusicData }) {
   const [accessToken, setAccessToken] = useState();
-  const [MusicData, setMusicData] = useState([]);
-
-  const from = ApiEmotion({emotion: current});
-  const to = ApiEmotion({emotion: purpose});
 
   useEffect(() => {
     const accessData = sessionStorage.getItem('accessToken');
@@ -25,19 +20,6 @@ export default function PlaySection({current, purpose}) {
         alert("다시 로그인해주세요.");
       } else {
         setAccessToken(loginData.token);
-        const fetchData = async() => {
-          const res = await fetch('http://175.106.92.75:8080/playlist',{
-            method:'GET',
-            headers:{
-              fromEmotion: from,
-              toEmotion: to
-            }
-          });
-          const result = res.json();
-          return result;
-        }	
-        
-        fetchData().then(res => setMusicData(res));
       }
     }
   }, []);
@@ -53,11 +35,11 @@ export default function PlaySection({current, purpose}) {
           </h1>
         </PlaySide>
         <PlaylistDiv>
-          <Playlist data={MusicData} accessToken={accessToken}/>
+          <Playlist data={MusicData.musicList} accessToken={accessToken} />
         </PlaylistDiv>
       </PlaySectionWrapper>
       <PlayerDiv>
-        <Player token={accessToken} data={MusicData} />
+        <Player token={accessToken} data={MusicData.musicList} />
       </PlayerDiv>
     </React.Fragment>
   )

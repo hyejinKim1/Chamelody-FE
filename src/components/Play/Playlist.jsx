@@ -1,20 +1,19 @@
 import styled from 'styled-components'
 import { getAlbumImg } from '../utils/getAlbumImg';
 
-
 export default function Playlist({ data, accessToken }) {
-
+  console.log(data);
   return (
     <PlaylistUl>
       {data.map((music) => (
         <PlaylistLi key={music.id}>
-          <img src={getAlbumImg(music.id, accessToken)}
+          <img src={getAlbumImg({id: music.id, accessToken})}
             alt="album img"
             width="70vw"
             style={{ borderRadius: "0.4vmin" }} />
           <MusicInfoDiv>
             <MusicName>{music.name}</MusicName>
-            {music.artists.map((artist) => artist).join(", ")}
+            {music.artists}
           </MusicInfoDiv>
         </PlaylistLi>
       ))}
