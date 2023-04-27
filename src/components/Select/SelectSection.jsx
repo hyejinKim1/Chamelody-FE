@@ -156,17 +156,17 @@ export default function SelectSection() {
             </Vertical>
         </HomeTitle>
         <HomeExplain>
-          <HomeSubTitle>
+          <SelectSubTitle>
               Chamelody guides you by drawing an emotion map.<br />
               Shall we follow the playlist created by finding a path between the two emotions of your choice? <br />
               If you press the <PlayImage/> ,  you can find the playlist.
-          </HomeSubTitle>
-          <Link to="/play">
-            <PlayBtn visible={showBtn}/>
-          </Link>
+          </SelectSubTitle>
         </HomeExplain>
         <InstructionDiv>
           <Instruction>{explain}</Instruction>
+          <Link to="/play">
+            <PlayBtn visible={showBtn}/>
+          </Link>
         </InstructionDiv>
       </HomeMain>
       <EmotionSection onClick={EmojiClick}></EmotionSection>
@@ -195,6 +195,9 @@ const Instruction = styled.p`
 const InstructionDiv = styled.div`
   position: absolute;
   bottom:1vh;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
 `
 const PlayBtn = styled.img.attrs({
   src: `img/button/PlayButton.svg`,
@@ -202,10 +205,18 @@ const PlayBtn = styled.img.attrs({
 })`
   width: 17vmin;
   cursor: pointer;
+  margin: 0 1vh 2vh 0;
   display: ${({visible}) => {
     if (visible) {
       return "flex";
     }
     return "none";
   }};
+`
+
+const SelectSubTitle = styled(HomeSubTitle)`
+  position: absolute;
+  bottom: 10vh;
+  padding: 0;
+  padding-right: 2.5vh;
 `

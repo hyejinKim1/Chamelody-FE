@@ -21,11 +21,10 @@ const LineHeight = styled.div`
   padding: 0;
 `
 
-const XBtn = styled.span`
+const XBtn = styled.div`
   color: rgb(122, 122, 122);
   font-size:2.5vw;
   font-weight:lighter;
-  line-height:100px;
   cursor: pointer;
   display: ${({visible}) => {
     if (visible) {
@@ -63,6 +62,7 @@ const blinking = keyframes`
   
 const BlinkingBack = styled(BackHighLight)`
   margin: 0 1vw 0 1vw;
+
   padding-bottom: 0;
   ${props => props.blink ? css`animation: ${blinking} 1s ease-in-out infinite alternate;` : ''}
 `

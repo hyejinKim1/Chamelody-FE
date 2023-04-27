@@ -53,7 +53,7 @@ export default function SearchMusic({ visible, token, xDelete }) {
       {searchBar &&
         <Search>
           <ImgBox>
-            <BiSearchAlt size={25} />
+            <BiSearchAlt size={"2.2vh"} />
           </ImgBox>
           <Input value={search} onChange={handleInputChange} />
         </Search>
@@ -74,11 +74,12 @@ const Search = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  border: 3px solid black;
-  border-radius: 20px;
+  border: 0.4vh solid black;
+  border-radius: 5vh;
   overflow: hidden;
-  max-width: 80%;
+  max-width: 90%;
   margin: 0 auto;
+  margin-top: 2vh
 `
 
 const Input = styled.input.attrs({
@@ -87,18 +88,18 @@ const Input = styled.input.attrs({
 })`
 width: 100%;
 display: block;
-padding: 8px 20px;
-padding-left: 38px;
+padding: 0.5vh 0.5vh;
+padding-left: 3.3vh;
 border: 0;
 outline: 0;
-font-size: 18px;
+font-size: 1.8vh;
 `
 
 const ImgBox = styled.div`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 10px;
+  left: 1vh;
   display: flex;
   align-items: center;
   svg {

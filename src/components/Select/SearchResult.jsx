@@ -23,8 +23,8 @@ export default function SearchResult({ result, showSearchBar, hideSearchBar}) {
             <List key={track.id} onClick={() => handleClick(track)}>
               <img src={track.album.images[2].url}
                 alt="album img"
-                width="100px"
-                height = "100px"
+                width="calc(45vh + 60vw)"
+                height = "calc(45vh + 60vw)"
                 style={{ borderRadius: "0.4vmin"}} />
               <br/>
               <Name>{track.name}</Name>
@@ -66,10 +66,13 @@ const Ul = styled.ul`
 `
 
 const List = styled.li`
+  display: inline-block;
+  width: 100%;
+  text-align: center;
   font-size: 12px;
   list-style: none;
-  border: 2px solid lightgray;
-  margin: 21px 4px 24px 4px;
+  border: 0.2vh solid lightgray;
+  margin: 1.1vh 0.5vh 1.4vh 0.5vh;
   padding: 8px;
   border-radius: 10px;
   cursor: pointer;
@@ -83,13 +86,14 @@ const List = styled.li`
 `
 
 const Name = styled.div`
-  font-size: 15px;
+  font-size: 1.5vh;
   line-height: 1;
   margin-top: 8px;
   margin-bottom: 8px;
 `
 
 const Artist = styled.div`
-  font-size: 9px;
+  font-size: 1.1vh;
+  font-weight: 350;
   line-height:1;
 `

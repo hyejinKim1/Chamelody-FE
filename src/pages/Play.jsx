@@ -3,10 +3,13 @@ import PlaySection from "../components/Play/PlaySection";
 import styled, { keyframes } from "styled-components";
 
 export default function Play() {
+  const current = sessionStorage.getItem('current');
+  const purpose = sessionStorage.getItem('purpose');
+
   return (
     <PlayWrapper>
       <div style={{ height: "8vh" }}></div>
-      <PlaySection />
+      <PlaySection current={current} purpose={purpose}/>
     </PlayWrapper>
   );
 }
