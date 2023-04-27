@@ -15,23 +15,42 @@ export default function Play() {
   const from = ApiEmotion({ emotion: current });
   const to = ApiEmotion({ emotion: purpose })
 
+  const [accessToken, setAccessToken] = useState();
+
   useEffect(() => {
-    fetch( 'http://175.106.92.75/playlist', {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        "fromEmotion": from,
-        "toEmotion": to,
-      }),
-    }).then((res) => res.json())
-      .then((data) => {
-        setMusicData(data)
-        setLoading(false);
-      })
+    const accessData = sessionStorage.getItem('accessToken');
+    if (!accessData) {
+      window.location.href = "https://chamelody.netlify.app/";
+      alert("다시 로그인해주세요.");
+    }
+    else {
+      const loginData = JSON.parse(accessData);
+      if (new Date().getTime() > loginData.expiration) {
+        sessionStorage.removeItem('accessToken');
+        window.location.href = "https://chamelody.netlify.app/";
+        alert("다시 로그인해주세요.");
+      } else {
+        setAccessToken(loginData.token);
+        fetch( 'http://175.106.92.75/playlist', {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            "fromEmotion": from,
+            "toEmotion": to,
+          }),
+        }).then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            setMusicData(data)
+            setLoading(false);
+          })
+      }
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
 
   return (
     <React.Fragment>
@@ -42,7 +61,7 @@ export default function Play() {
         (
           <PlayWrapper>
             <div style={{ height: "8vh" }}></div>
-            <PlaySection current={current} purpose={purpose} MusicData={MusicData} />
+            <PlaySection current={current} purpose={purpose} MusicData={MusicData} accessToken={accessToken}/>
           </PlayWrapper>
 
         )}

@@ -3,27 +3,7 @@ import Player from "./Player";
 import Playlist from "./Playlist";
 import styled from 'styled-components';
 
-export default function PlaySection({ current, purpose, MusicData }) {
-  const [accessToken, setAccessToken] = useState();
-
-  useEffect(() => {
-    const accessData = sessionStorage.getItem('accessToken');
-    if (!accessData) {
-      window.location.href = "https://chamelody.netlify.app/";
-      alert("다시 로그인해주세요.");
-    }
-    else {
-      const loginData = JSON.parse(accessData);
-      if (new Date().getTime() > loginData.expiration) {
-        sessionStorage.removeItem('accessToken');
-        window.location.href = "https://chamelody.netlify.app/";
-        alert("다시 로그인해주세요.");
-      } else {
-        setAccessToken(loginData.token);
-      }
-    }
-  }, []);
-
+export default function PlaySection({ current, purpose, MusicData, accessToken }) {
   return (
     <React.Fragment>
       <PlaySectionWrapper>

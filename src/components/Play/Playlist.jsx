@@ -1,16 +1,15 @@
 import styled from 'styled-components'
-import { getAlbumImg } from '../utils/getAlbumImg';
+import AlbumImg from '../utils/AlbumImg'
 
 export default function Playlist({ data, accessToken }) {
   console.log(data);
+
   return (
     <PlaylistUl>
-      {data.map((music) => (
+      {data.map((music) =>
+      (
         <PlaylistLi key={music.id}>
-          <img src={getAlbumImg({id: music.id, accessToken})}
-            alt="album img"
-            width="70vw"
-            style={{ borderRadius: "0.4vmin" }} />
+          <AlbumImg id={music.id} accessToken={accessToken}/>
           <MusicInfoDiv>
             <MusicName>{music.name}</MusicName>
             {music.artists}

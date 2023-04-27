@@ -61,7 +61,7 @@ const Music = styled.div`
 `
 
 const ImgBox = styled.div`
-margin:0;
+  margin:0;
 `
 
 const Name = styled.div`
